@@ -26,7 +26,7 @@ a:hover {
     top: 0;
     right: 0;
     background-color: #fff;
-    padding: 8px 0;
+    padding: 0;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
     min-width: 100px;
     list-style: none;
@@ -39,7 +39,7 @@ a:hover {
 }
 
 .dropdown-content li {
-  padding: 5px 14px;
+  padding: 7px 14px;
   cursor: pointer;
 }
 
@@ -678,7 +678,32 @@ main .border-top {
   text-align: left;
 }
 
-.deposit-form .form .dropdown-btn.currency-select {
+.deposit-form .form .method-select .dropdown-content img {
+  height: 35px;
+  padding-right: 10px;
+}
+
+.deposit-form .form .method-select .dropdown-content .id {
+  color: #77838f;
+  font-size: 14px;
+}
+
+.deposit-form .form .method-select .dropdown-content .add-new {
+ /*background-color: #f8f9fa;*/
+}
+
+
+.deposit-form .form .method-select .dropdown-content .add-new a:hover {
+  text-decoration: none;
+}
+
+.deposit-form .form .method-select .dropdown-content .add-new img {
+  height: 17px;
+  position: relative;
+  top: -2px;
+}
+
+.deposit-form .form .currency-select .dropdown-btn {
   border-radius: 50px;
   width: 200px;
   margin-top: 0;
@@ -718,7 +743,8 @@ main .border-top {
   font-weight: 500;
 }
 
-.deposit-form .form .dropdown-btn p .deposit-method-name {
+.deposit-form .form .dropdown-btn p .deposit-method-name,
+.deposit-form .form .dropdown-btn p .currency-name {
     position: relative;
     display: block;
 }
@@ -728,17 +754,28 @@ main .border-top {
   font-size: 14px;
 }
 
-.deposit-form .form .dropdown-btn img.method-logo {
+.deposit-form .form .dropdown-btn img.method-logo,
+.deposit .form .currency-select img.currency-logo {
   position: relative;
   height: 35px;
   top: -5px;
 }
 
-.deposit-form .form .dropdown-btn img.icon {
+.deposit .form .currency-select .dropdown-content img.currency-logo {
+  top: 0;
+}
+
+.deposit .form .currency-select .dropdown-content .currency-name {
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+.deposit .form .method-select img.icon,
+.deposit .form .currency-select img.icon {
   padding-left: 10px;
   position: absolute;
   right: 15px;
-  top: 20px;
+  top: 22px;
 }
 
 footer {

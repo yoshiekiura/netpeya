@@ -42,7 +42,7 @@
                             <span class="amount-label">Amount</span>
                         </div>
                         <div class="form-group">
-                            <div class="dropdown-holder">
+                            <div class="dropdown-holder method-select">
                                 <button class="dropdown-btn">
                                     <img class="method-logo" src="assets/images/payment_methods/neteller.svg" />
                                     <p>
@@ -52,28 +52,29 @@
                                     <img class="icon" src="assets/images/icons/small-chevron-down.png" />
                                 </button>
                                 <ul class="dropdown-content">
-                                    <li>English</li>
-                                    <li>Spanish</li>
-                                    <li>Xhosa</li>
+                                    <li class="text-center add-new"><a href=""><img src="/assets/images/icons/add.png" /> Add new</a></li>
+                                    <li><img class="method-logo" src="assets/images/payment_methods/neteller.svg" /> Neteller -  <span class="id">ati2&middot;&middot;&middot;&middot;@gmail.com</span></li>
+                                    <li><img class="method-logo" src="assets/images/payment_methods/card.svg" /> Visa card -  <span class="id">4242&middot;&middot;&middot;&middot;444444</span></li>
+                                    <li><img class="method-logo" src="assets/images/payment_methods/paypal.svg" /> Paypal -  <span class="id">ati2&middot;&middot;&middot;&middot;@gmail.com</span></li>
                                 </ul>
                             </div>
                         </div>
                         <p>Fees: <span id="selected-method-fees">10</span><span>%</span></p>
                         <div class="webkit-box text-center">
                             <div class="col-md-6 no-left">
-                                <div class="dropdown-holder pull-right">
-                                    <button class="dropdown-btn currency-select">
-                                        <img class="method-logo" src="assets/svg/countries/usd.svg" />
+                                <div class="dropdown-holder currency-select pull-right">
+                                    <button class="dropdown-btn">
+                                        <img class="currency-logo" src="assets/svg/countries/usd.svg" />
                                         <p>
                                             <span class="label">Currency wallet</span>
-                                            <span class="deposit-method-name">USD</span>
+                                            <span class="currency-name">USD</span>
                                         </p>
                                         <img class="icon" src="assets/images/icons/small-chevron-down.png" />
                                     </button>
                                     <ul class="dropdown-content">
-                                        <li>English</li>
-                                        <li>Spanish</li>
-                                        <li>Xhosa</li>
+                                        <li><img class="currency-logo" src="assets/svg/countries/usd.svg" /><span class="currency-name">USD - $</span></li>
+                                        <li><img class="currency-logo" src="assets/svg/countries/zar.svg" /><span class="currency-name">ZAR - R</span></li>
+                                        <li><img class="currency-logo" src="assets/svg/countries/gbp.svg" /><span class="currency-name">GBP - P</span></li>
                                     </ul>
                                 </div>
                             </div>
