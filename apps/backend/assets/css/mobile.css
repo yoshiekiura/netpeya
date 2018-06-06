@@ -1,0 +1,142 @@
+@media (max-width: 767px) {
+	.show-mobile {
+		display: block;
+	}
+	.container-login100 {
+		padding: 0;
+		background-color: #fff;
+		background-image: none;
+	}
+	.wrap-login100 {
+		width: 100%;
+		border-radius: 0;
+	}
+	.login100-form#login_form {
+		padding: 43px 15px 15px;
+	}
+	.login100-form-title {
+		padding: 30px 15px;
+	}
+	.login100-form-title img {
+		width: 100px;
+	}
+	.content {
+		padding: 40px 0;
+	}
+
+	.main-header {
+		height: 50px;
+	}
+
+	.main-sidebar {
+		width: 230px;
+		top: 50px;
+	}
+
+	.main-header .sidebar-toggle {
+		z-index: 8000;
+	}
+
+	.main-header, .skin-blue .main-header .logo {
+		background-color: #61D395!important;
+	}
+
+	.no-left, .no-right {
+		padding-left: 0;
+		padding-right: 0
+	}
+
+	.border-left, .border-right {
+		border: none;
+	}
+
+	.side-logo {
+	    position: absolute;
+	    top: 43px;
+	}
+
+	.content-wrapper, .main-footer {
+	    padding: 0 15px;
+	    background-color: #fff;
+	}
+
+	.side-logo img {
+		height: 30px;
+		margin-top: 14px;
+	}
+
+	.main-header .navbar .nav > li > a {
+	    padding-right: 10px!important;
+	}
+
+	.main-header .navbar-custom-menu {
+	    position: absolute;
+	    top: 57px;
+	    right: 0;
+	}
+
+	.skin-blue .main-header .navbar .nav > li > a {
+		padding: 0;
+		line-height: 50px;
+	}
+
+	.main-header .navbar .nav > li.user > a > img {
+		border: none;
+	}
+
+	.skin-blue .main-header .navbar {
+		border-bottom: none;
+	}
+
+	.skin-blue .main-header .navbar .sidebar-toggle {
+		color: #fff;
+		line-height: 50px;
+	}
+
+	.wallet {
+		margin-bottom: 18px;
+	}
+
+	.stepy h4 {
+		font-size: 23px;
+	}
+
+	.stepy .step {
+		    padding: 10px 0 20px 0;
+	}
+
+	.transfer-costs {
+		overflow: hidden;
+	}
+
+	.my-modal form {
+		padding: 0 15px;
+	}
+
+	.btn {
+		width: 100%;
+		max-width: 100%;
+		min-width: 100%;
+	}
+
+	.top-30 {
+		margin-top: 0;
+	}
+
+	.sm-text-center {
+		text-align: center;
+	}
+
+	.sm-text-right {
+		text-align: right;
+	}
+
+	.onoffswitch-inner {
+		text-align: left;
+	}
+
+	.onoffswitch {
+		margin: 0 auto;
+	}
+
+}

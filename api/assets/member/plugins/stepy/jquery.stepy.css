@@ -1,0 +1,175 @@
+.stepy-step {
+  display: none;
+}
+
+.stepy-step.stepy-active {
+  display: block;
+}
+
+.stepy-back, .stepy-next, .stepy-finish {
+  display: none;
+}
+
+.stepy-back.stepy-active, .stepy-next.stepy-active, .stepy-finish.stepy-active {
+  display: inline;
+}
+
+.stepy h4 {
+  font-size: 28px;
+  padding-top:0;
+  font-weight: 100;
+}
+
+.stepy-header { list-style: none; padding: 0; width: 100%; overflow: hidden; margin: 0 auto; display: none;}
+  .stepy-header li { cursor: pointer; float: left; padding: 0 50px 20px 0; }
+    .stepy-header li.stepy-error { background: url('../demo/img/error.png') no-repeat right top }
+    .stepy-header li div {
+      color: #ccc;
+      /* font: bold 2.8em verdana; */
+      text-shadow: 1px 1px #f8f8f8;
+      font-size: 1.8em;
+      font-weight: 800;
+     }
+    .stepy-header li.stepy-active div { color: #0747A6; cursor: auto }
+    .stepy-header li span { color: #ccc; font-size: 18px; font-weight: 400; }
+    .stepy-header li.stepy-active span { color: #bbb }
+
+.stepy-step {
+    border-top: 1px solid #bbb;
+    clear: left;
+    padding: 40px 0 20px 0;
+    width: 100%;
+    -khtml-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -opera-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 0;
+    margin-top: 25px;
+}
+
+  .stepy-step select { padding-top: 5px }
+
+  .stepy-step textarea { height: 100px }
+
+
+.stepy-legend {
+  color: #828282;
+  font-size: 18px;
+  letter-spacing: .7px;
+  padding: 0 15px 0px 15px;
+  width: auto;
+  line-height: inherit;
+  font-weight: 400;
+  border: 0;
+  border-bottom: none;
+}
+
+.stepy-footer {
+  padding: 30px 0;
+}
+
+.stepy-active span {
+  color: #808080!important;
+}
+
+.stepy-footer .btn {
+  margin: 0 5px 0 0;
+}
+
+.stepy-next i, .stepy-finish i {
+  padding-left: 6px;
+}
+
+.stepy .wallet {
+  border-width: 1px!important;
+  line-height: 60px;
+  box-shadow: none!important;
+  margin: 0 20px 0 0;
+  padding: 10px 20px;
+  color: #808080!important;
+}
+
+.stepy .wallet:after {
+  content: "";
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    top: 26px;
+    border-radius: 20px;
+    pointer-events: none;
+    opacity: 0;
+    margin-left: -5%;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -o-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: opacity .2s,-webkit-transform .2s cubic-bezier(.18,.89,.77,1.29);
+    -moz-transition: opacity .2s,-moz-transform .2s cubic-bezier(.18,.89,.77,1.29);
+    -o-transition: opacity .2s,-o-transform .2s cubic-bezier(.18,.89,.77,1.29);
+    -ms-transition: opacity .2s,-ms-transform .2s cubic-bezier(.18,.89,.77,1.29);
+    transition: opacity .2s,transform .2s cubic-bezier(.18,.89,.77,1.29);
+}
+
+.stepy .wallet:hover {
+  border: 1px solid #bbb!important;
+  cursor: pointer;
+}
+
+.stepy .wallet.selected {
+  background-color: #fff!important;
+  border: 1px solid #69d720!important;
+}
+
+.stepy .wallet.selected:after {
+  opacity: 1;
+  background-color: #69d720;
+  background-image: url('../../images/icons/tick_icon.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+    -ms-filter: none;
+    filter: none;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+
+.stepy .wallet, .stepy .info-box {
+  background-color: transparent;
+  border: 1px solid #bbb!important;
+  border-radius: 5px!important;
+  box-shadow: none;
+}
+
+.stepy .info-box {
+  min-height: 60px;
+  border-width: 1px;
+  margin-bottom: 0;
+}
+
+
+.stepy .info-box-icon {
+  height: 60px;
+  line-height: 55px;
+  vertical-align: middle;
+}
+
+.stepy .info-box-icon > img {
+  max-height: 55px;
+}
+
+.stepy .info-box-content {
+  vertical-align: middle;
+  height: 55px;
+  margin-top: 10px;
+}
+
+.stepy .info-box-number {
+  line-height: 16px;
+}

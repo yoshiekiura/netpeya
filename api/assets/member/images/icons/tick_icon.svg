@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>success</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="#efefef" stroke-width="1" fill="#69d720" fill-rule="evenodd">
+        <g id="Icons-Copy" transform="translate(-281.000000, -230.000000)" fill-rule="nonzero" fill="#69d720">
+            <g id="cards" transform="translate(281.000000, 42.000000)">
+                <g id="success" transform="translate(0.000000, 188.000000)">
+                    <path d="M8.01226169,0 C8.00820386,0 8.00414604,0.000176696006 8.00008821,0.000176696006 C7.99603039,0.000176696006 7.99197257,0 7.98791474,0 C3.57635435,0 0,3.58162803 0,8.00008835 C0,12.4185487 3.57617793,16 7.98773831,16 C7.99179614,16 7.99585396,15.9998233 7.99991179,15.9998233 C8.00396961,15.9998233 8.00802743,16 8.01208526,16 C12.4238221,16 16,12.4181953 16,7.99991165 C16,3.58162803 12.4236456,0 8.01226169,0 Z M7.7848918,9.82055489 L7.78456175,9.82022757 L7.24741009,10.3529412 L4.70588235,7.83257572 L5.40508715,7.1391479 L7.24757511,8.96641286 L10.5949129,5.64705882 L11.2941176,6.34048664 L7.7848918,9.82055489 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
