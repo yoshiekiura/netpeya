@@ -657,7 +657,6 @@ main .border-top {
 
 .deposit-form .form .dropdown-btn {
     background-color: #fff;
-    border: 1px solid #D0D5DF;
     height: 50px;
     position: relative;
     text-align: left;
@@ -666,9 +665,6 @@ main .border-top {
     border-radius: 5px;
     padding: 0 15px;
     margin: 0 auto;
-}
-
-.deposit-form .form .dropdown-btn:hover, .deposit-form .form .submit:hover {
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.1)!important;
     border: 1px solid #fff;
 }
@@ -707,6 +703,7 @@ main .border-top {
   border-radius: 50px;
   width: 200px;
   margin-top: 0;
+  padding-left: 0;
 }
 
 .deposit-form .form .submit {
@@ -759,6 +756,12 @@ main .border-top {
   position: relative;
   height: 35px;
   top: -5px;
+}
+
+.deposit .form .currency-select img.currency-logo {
+  height: 48px;
+  left: -1px;
+  top: -3px;
 }
 
 .deposit .form .currency-select .dropdown-content img.currency-logo {
