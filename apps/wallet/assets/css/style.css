@@ -650,6 +650,11 @@ main .border-top {
   font-size: 14px;
 }
 
+.dropdown-holder {
+  width: fit-content;
+  margin: 0 auto;
+}
+
 .deposit-form .form .dropdown-btn {
     background-color: #fff;
     border: 1px solid #D0D5DF;
@@ -657,7 +662,7 @@ main .border-top {
     position: relative;
     text-align: left;
     color: #000;
-    width: 250px;
+    width: auto;
     border-radius: 5px;
     padding: 0 15px;
     margin: 0 auto;
@@ -666,6 +671,11 @@ main .border-top {
 .deposit-form .form .dropdown-btn:hover, .deposit-form .form .submit:hover {
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.1)!important;
     border: 1px solid #fff;
+}
+
+.deposit-form .form .dropdown-content {
+  width: 100%;
+  text-align: left;
 }
 
 .deposit-form .form .dropdown-btn.currency-select {
@@ -698,6 +708,7 @@ main .border-top {
     position: relative;
     top: 5px;
     color: #444;
+    padding-right: 25px;
 }
 
 .deposit-form .form .dropdown-btn p .label {
@@ -710,6 +721,11 @@ main .border-top {
 .deposit-form .form .dropdown-btn p .deposit-method-name {
     position: relative;
     display: block;
+}
+
+.deposit-form .form .dropdown-btn p .id {
+  color: #77838f;
+  font-size: 14px;
 }
 
 .deposit-form .form .dropdown-btn img.method-logo {

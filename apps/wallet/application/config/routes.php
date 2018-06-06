@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['dashboard'] = 'main';
 $route['transactions'] = 'main/transactions';
+$route['deposit'] = 'deposit';
 $route['default_controller'] = 'main';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
