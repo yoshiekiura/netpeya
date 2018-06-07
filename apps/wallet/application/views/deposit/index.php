@@ -147,3 +147,78 @@
     </div>
 </section>
 <?php $CI->load->view('templates/footer'); ?>
+<script type="text/javascript">
+    $(function() {
+        $(document).ready(function() {
+            calculateTotalAmount();
+
+            $('#deposit_amount').on('keyup', function() {
+                var amount = $(this).val().trim();
+                $('#btn_deposit_amount').text(amount);
+                calculateTotalAmount();
+            });
+
+            $('.quick-pick p').on('click', function() {
+                $('.quick-pick p').removeClass('active');
+                $(this).addClass('active');
+
+                var amount = $(this).data('value');
+                $('#deposit_amount').val(amount);
+                calculateTotalAmount();
+            })
+
+            $('.deposit-method').on('click', function() {
+                var value = $(this).data('value');
+                var src = $(this).data('src');
+                var name = $(this).data('name');
+                var fees = $(this).data('fees');
+                $('#deposit_method').val(value);
+                $('.custom-dropdown').removeClass('active');
+                $('.u-unfold').addClass('u-unfold--hidden');
+
+                $('.selected-method-fees').text(fees);
+
+                $('#dropdownMethodsButtonInvoker img').attr('src', '/assets/img/payment_methods/' + src + '.svg');
+                $('#dropdownMethodsButtonInvoker .method-name').text(name);
+                calculateTotalAmount();
+            })
+
+            $('.deposit-currency').on('click', function() {
+                var value = $(this).data('value');
+                var src = $(this).data('src');
+                var name = $(this).data('name');
+                var simbol = $(this).data('simbol');
+                $('#deposit_currency').val(value);
+                $('.custom-dropdown').removeClass('active');
+                $('.u-unfold').addClass('u-unfold--hidden');
+
+                $('.selected-currency-simbol').text(simbol);
+
+                $('#dropdownCurrencesButtonInvoker img').attr('src', '/assets/svg/countries/' + src + '.svg');
+                $('#dropdownCurrencesButtonInvoker .method-name').text(name);
+            })
+        })
+
+        function calculateTotalAmount() {
+            var fees = parseFloat($('#selected-method-fees').text());
+            var amount = $('#deposit_amount').val().trim();
+
+            if(amount == '' || amount == '0') {
+                amount = 0;
+                $('#deposit_continue_btn').attr('disabled', 'disabled');
+            } else {
+                $('#deposit_continue_btn').removeAttr('disabled');
+            }
+
+            amount = parseFloat(amount);
+
+            var total_fees = (fees / 100) * amount;
+
+            var total_amount = parseFloat(total_fees + amount).toFixed(2);
+
+            console.log(fees);
+
+            $('#btn_deposit_amount').text(myFormatNumber(total_amount));
+        }
+    })
+</script>
