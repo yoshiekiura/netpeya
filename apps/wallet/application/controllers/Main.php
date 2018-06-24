@@ -1,22 +1,27 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Main extends CI_Controller {
+class Main extends MY_Controller {
 
 	public function __construct() {
 		parent::__construct();
 
 		$this->data['pageTitle'] = "dashboard";
+		if (!$this->netpeya_auth->logged_in())
+		{
+			redirect('login');
+		}
+
+		$this->load->model('transaction_model');
 	}
 
 	public function index()
 	{
-		$this->load->view('dashboard', $this->data);
+		$this->load->view('app', $this->data);
 	}
 
-	public function transactions()
+	public function dashboard()
 	{
-		$this->data['pageTitle'] = "transactions";
-		$this->load->view('transactions', $this->data);
+		$this->load->view('dashboard', $this->data);
 	}
 }

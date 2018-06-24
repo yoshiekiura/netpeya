@@ -23,7 +23,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '';
+$config['protocol'] = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+
+$config['base_url'] = $config['protocol'].$_SERVER['HTTP_HOST'].'/';
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +37,7 @@ $config['base_url'] = '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -521,3 +523,36 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+// ===== AUTH ===========
+
+$config['track_login_attempts'] = TRUE;
+$config['track_login_ip_address'] = FALSE;
+$config['maximum_login_attempts'] = 5;
+$config['lockout_time'] = 180;
+$config['recheck_timer'] = 0;
+
+$config['pagination'] = array(
+    'base_url' =>  $config['base_url'] . 'transactions/all',
+    'total_rows' => 0,
+    'per_page' => 10,
+    'num_links' => 0,
+    'full_tag_open' => '<div class="pagination">',
+    'full_tag_close' => '</div>',
+    'first_link' => '',
+    'first_tag_open' => '<span class="pagination-btn pagination-first">',
+    'first_tag_close' => '</span>',
+    'last_link' => '',
+    'last_tag_open' => '<span class="pagination-btn pagination-last">',
+    'last_tag_close' => '</span>',
+    'next_link' => 'Next',
+    'next_tag_open' => '<span class="pagination-btn pagination-next ml-3">',
+    'next_tag_close' => '</span>',
+    'prev_link' => 'Prev',
+    'prev_tag_open' => '<span class="pagination-btn pagination-prev">',
+    'prev_tag_close' => '</span>',
+    'cur_tag_open' => '<span class="pagination-btn active" style="display:none">',
+    'cur_tag_close' => '</span>',
+    'num_tag_open' => '<span class="pagination-btn">',
+    'num_tag_close' => '</span>'
+);

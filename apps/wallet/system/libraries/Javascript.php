@@ -136,7 +136,7 @@ class CI_Javascript {
 	 */
 	public function click($element = 'this', $js = '', $ret_false = TRUE)
 	{
-		return $this->js->_click($element, $js, $ret_false);
+		return $this->js->_click($element, "alert('hello');", $ret_false);
 	}
 
 	// --------------------------------------------------------------------

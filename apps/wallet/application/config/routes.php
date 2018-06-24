@@ -49,9 +49,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['dashboard'] = 'main';
-$route['transactions'] = 'main/transactions';
+
+//****** AUTH ***********
+$route['login'] = 'auth/login';
+$route['logout'] = 'auth/logout';
+$route['register'] = 'auth/register';
+
+// ****** AJAX **************
+
+$route['ajax/register'] = 'ajax/register';
+$route['ajax/login'] = 'ajax/login';
+$route['ajax/proccess_deposit'] = 'ajax/proccess_deposit';
+
+
+//****** APP ************
+$route['app'] = 'main';
+$route['dashboard'] = 'main/dashboard';
+$route['transactions'] = 'transactions/all';
+$route['transactions/all'] = 'transactions/all';
 $route['deposit'] = 'deposit';
+$route['deposit/forms/(:any)'] = 'deposit/forms/$1';
+
+
 $route['default_controller'] = 'main';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
