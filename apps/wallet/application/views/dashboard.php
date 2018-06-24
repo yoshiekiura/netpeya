@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="user-balance mt-3 border-top pt-3">
-                    <div class="user-currency" style="background-image: url('/assets/svg/countries/<?= $user->currency_code ?>.svg');"></div>
+                    <div class="user-currency" style="background-image: url('/assets/svg/countries/<?= strtolower($user->currency_code) ?>.svg');"></div>
                     <div class="balance-details">
                         <span class="balance-title">Your Balance:</span>
                         <span class="balance-amount"><?= $user->currency_simbol . number_format($user->account_balance, 2, '.', ' ') ?></span>
