@@ -31,10 +31,10 @@ class DepositProcessor
             'customerId' => $payment_data['remote_user_id'],
             'creditCard' => [
                 'cardholderName' => $payment_data['cc_holder'],
-                'cvv' => '',//$payment_data['cc_cvv'],
+                'cvv' => $payment_data['cc_cvv'],
                 'expirationMonth' => $payment_data['cc_exp_month'],
                 'expirationYear' =>  $payment_data['cc_exp_year'],
-                'number' => '',//$payment_data['cc_number']
+                'number' => $payment_data['cc_number']
             ],
             'merchantAccountId' => 'XANNIA-PAY-' . strToUpper($payment_data['currency'])
         ]);
