@@ -1,3 +1,10 @@
+<?php if($pageTitle != 'transactions'): ?>
+				</div>
+	        </div>
+	    </div>
+	</section>
+<?php endif; ?>
+
 </div>
         </main>
         <footer>
@@ -51,4 +58,5 @@
 <script type="text/javascript" src="/assets/vendors/validate/additional-methods.min.js"></script>
 <script type="text/javascript" src="/assets/js/app.js"></script>
 <script type="text/javascript" src="/assets/js/deposit.js"></script>
+<script type="text/javascript" src="/assets/js/friends.js"></script>
 </html>

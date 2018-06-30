@@ -5,6 +5,5 @@
 
 ?>
 
-
 <?php $CI->load->view('templates/footer'); ?>
             

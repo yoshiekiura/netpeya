@@ -110,6 +110,25 @@ class Ajax extends MY_Controller {
         return $this->load->view('deposit/failed', $payment_data);
     }
 
+    public function add_friend() {
+        $this->form_validation->set_rules("friend", "Friend", "required");
+
+        $friend = json_decode($this->input->post("friend"), TRUE);
+        $friend['email'] = strtolower($friend['email']);
+
+        if ($this->form_validation->run()) {
+            $this->load->model('friend_model');
+            $added_friend = $this->friend_model->add($friend);
+            if(!$added_friend) {
+                $data = array();
+                $data['friend'] = $added_friend;
+                return $this->load->view('friend/add_success', $data);
+            }
+        }
+
+        return $this->load->view('friend/add_failed');
+    }
+
 	private function formatData($data, $errors)
     {
         $this->output->set_header('Access-Control-Allow-Origin: *');

@@ -17,7 +17,7 @@ class Main extends MY_Controller {
 
 	public function index()
 	{
-		$this->load->view('app', $this->data);
+		$this->load->view('dashboard', $this->data);
 	}
 
 	public function dashboard()

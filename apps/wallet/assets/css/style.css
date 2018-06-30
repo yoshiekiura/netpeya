@@ -94,8 +94,7 @@ a:hover {
 header {
   height: 88px;
   width: 100%;
-  background-color: rgb(249, 249, 251);
-  border-bottom: 1px solid #e9ecee;
+  background-color: #fff;
 }
 
 header .left, header .center, header .right {
@@ -315,24 +314,14 @@ header nav ul li {
   background-image: url('../images/icons/list-white.png');
 }
 
-.secondary-nav ul li a.nav-send {
-  background-image: url('../images/icons/arrow-right.png');
+.secondary-nav ul li a.nav-send-receive {
+  background-image: url('../images/icons/send-receive.png');
 }
 
-.secondary-nav ul li a.nav-send.active,
-.secondary-nav ul li a.nav-send:hover,
-.secondary-nav ul li a.nav-send:focus {
-  background-image: url('../images/icons/arrow-right-white.png');
-}
-
-.secondary-nav ul li a.nav-request {
-  background-image: url('../images/icons/arrow-left.png');
-}
-
-.secondary-nav ul li a.nav-request.active,
-.secondary-nav ul li a.nav-request:hover,
-.secondary-nav ul li a.nav-request:focus {
-  background-image: url('../images/icons/arrow-left-white.png');
+.secondary-nav ul li a.nav-send-receive.active,
+.secondary-nav ul li a.nav-send-receive:hover,
+.secondary-nav ul li a.nav-send-receive:focus {
+  background-image: url('../images/icons/send-receive-white.png');
 }
 
 .secondary-nav ul li a.nav-exchange {
@@ -394,6 +383,9 @@ header nav ul li {
   color: #fff;
 }
 
+.third-nav ul li a.nav-add {
+}
+
 main {
   padding-bottom: 80px;
   min-height: calc(100vh - 281px);
@@ -422,6 +414,10 @@ main .lazyload.loaded > * {
 
 main .border-top {
   border-top: 2px solid #e9ecee;
+}
+
+main .app_content {
+  padding: 0;
 }
 
 .app-top {
@@ -818,7 +814,6 @@ main .border-top {
 
 .deposit-form .form {
   text-align: center;
-  padding: 10px 20px;
 }
 
 .deposit-form .form #deposit_amount {
@@ -1022,7 +1017,8 @@ main .border-top {
   top: 28px;
 }
 
-.deposit-result {
+.deposit-result,
+.add-friend-result {
   padding: 50px;
   min-height: 410px!important;
   overflow: hidden;
@@ -1030,23 +1026,33 @@ main .border-top {
 }
 
 .deposit-success,
-.deposit-failed {
+.deposit-failed,
+.add-friend-success,
+.add-friend-failed {
   color: #444;
   text-transform: uppercase;
   font-size: 16px;
 }
 
-.deposit-success {
+.deposit-success,
+.add-friend-success {
   background-color: rgba(78, 185, 41, 0.5);
 }
 
-.deposit-failed {
+.deposit-failed,
+.add-friend-failed {
   background-color: rgba(254, 114, 0, 0.5);
 }
 
 .deposit-success img,
 .deposit-failed img {
   height: 70px;
+}
+
+.add-friend-success img,
+.add-friend-failed img {
+  height: 21px;
+  margin-bottom: 20px;
 }
 
 .deposit-failed .btn {
@@ -1064,7 +1070,7 @@ main .border-top {
 }
 
 footer {
-  background-color: rgb(249, 249, 251);
+  background-color: #fff;
 }
 
 footer .logo img {
@@ -1620,7 +1626,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 }
 
 input.error {
-  background-color: #ef60004d!important;
+  color: #d93025!important;
 }
 
 .form-group {
@@ -1661,6 +1667,48 @@ input.error {
 
 .dashboard-top .card {
   height: 420px;
+}
+
+.friends .friends-search-form {
+  display: inline-block;
+  width: 100%;
+}
+
+.friends .friends-search-form .form-group {
+  float: left;
+  margin: 0;
+}
+
+.friends .friends-search-form .form-group .form-control {
+  background-color: transparent;
+  border: none;
+}
+
+.friends .friends-search-form .form-group .form-control::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background-image: url('../images/icons/search.png');
+  background-size: 16px;
+  background-repeat: no-repeat;
+}
+
+.friends .friends-search-form .add-btn {
+  vertical-align: middle;
+  color: #394047;
+  background-size: 17px;
+  background-position: 9px;
+  background-repeat: no-repeat;
+  border-radius: 3px;
+  background-color: transparent;
+  padding: 8px 0;
+  display: flex;
+  align-items: center;  
+}
+
+.friends .friends-search-form .add-btn img {
+  height: 16px;
+  margin-right: 10px;
 }
 
 /*.deposit .dashboard-top .card {

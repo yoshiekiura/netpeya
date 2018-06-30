@@ -60,15 +60,17 @@ $route['register'] = 'auth/register';
 $route['ajax/register'] = 'ajax/register';
 $route['ajax/login'] = 'ajax/login';
 $route['ajax/proccess_deposit'] = 'ajax/proccess_deposit';
+$route['ajax/add_friend'] = 'ajax/add_friend';
 
 
 //****** APP ************
-$route['app'] = 'main';
 $route['dashboard'] = 'main/dashboard';
 $route['transactions'] = 'transactions/all';
 $route['transactions/all'] = 'transactions/all';
 $route['deposit'] = 'deposit';
 $route['deposit/forms/(:any)'] = 'deposit/forms/$1';
+$route['friend'] = 'friend';
+$route['settings'] = 'settings';
 
 
 $route['default_controller'] = 'main';

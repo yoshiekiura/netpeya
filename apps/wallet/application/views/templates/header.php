@@ -20,7 +20,7 @@
                             <div class="input-group-prepend input-group icon">
                                 <span class="input-group-text"><img class="icon" src="/assets/images/icons/search.png" /></span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Search transactions or help">
+                            <input type="text" class="form-control" placeholder="Transactions, friends or help">
                             <div class="input-group-append input-group">
                                 <span class="input-group-text dropdown-btn dropdown-btn" >Currences</span>
                                 <ul class="dropdown-content">
@@ -75,19 +75,16 @@
                         <a href="/transactions" class="<?= $pageTitle == 'transactions' ? 'active' : '' ?> nav-history">History</a>
                     </li>
                     <li>
-                        <a href="" class="nav-send">Send</a>
+                        <a href="/friend" class="<?= $pageTitle == 'friends' ? 'active' : '' ?> nav-friends">Friends</a>
                     </li>
                     <li>
-                        <a href="" class="nav-request">Request</a>
+                        <a href="" class="nav-send-receive">Send/Request</a>
                     </li>
                     <!-- <li>
                         <a href="" class="nav-exchange">Exchange</a>
                     </li> -->
                     <li>
-                        <a href="" class="nav-friends">Friends</a>
-                    </li>
-                    <li>
-                        <a href="" class="nav-settings">Settings</a>
+                        <a href="/settings" class="<?= $pageTitle == 'settings' ? 'active' : '' ?> nav-settings">Settings</a>
                     </li>
                 </ul>
                 <ul class="pull-right right">
@@ -100,5 +97,60 @@
                 </ul>
             </div>
         </nav>
+        <?php if($pageTitle == 'friends'): ?>
+            <nav class="third-nav">
+                <div class="container">
+                    <ul class="pull-left left">
+                        <li>
+                            <a href="/dashboard" class="<?= $pageTitle == 'friends' ? 'active' : '' ?> nav-list">My friends</a>
+                        </li>
+                        <li>
+                            <a id="add_friend_btn" href="" class="nav-add">Add a friend</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        <?php endif;?>
+        <?php if($pageTitle == 'settings'): ?>
+            <nav class="third-nav">
+                <div class="container">
+                    <ul class="pull-left left">
+                        <li>
+                            <a href="/dashboard" class="<?= $pageTitle == 'settings' ? 'active' : '' ?> nav-details">My details</a>
+                        </li>
+                        <li>
+                            <a id="add_friend_btn" href="" class="nav-security">Security</a>
+                        </li>
+                        <li>
+                            <a id="add_friend_btn" href="" class="nav-prefs">Preferences</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        <?php endif;?>
         <main>
             <div class="container">
+                <?php if($pageTitle != 'transactions'): ?>
+                    <section class="app-top border-top">
+                        <div class="webkit-box">
+                            <div class="col-md-4 no-left request-send">
+                                <div class="card user-summary">
+                                    <div class="user-profile">
+                                        <div class="user-pic"><?= $user->first_name[0] . $user->last_name[0] ?></div>
+                                        <div class="user-details">
+                                            <span class="user-name"><?= $user->first_name . ' ' . $user->last_name ?></span>
+                                            <span class="user-account-id"><?= $user->country ?></span>
+                                        </div>
+                                    </div>
+                                    <div class="user-balance mt-3 border-top pt-3">
+                                        <div class="user-currency" style="background-image: url('/assets/svg/countries/<?= strtolower($user->currency_code) ?>.svg');"></div>
+                                        <div class="balance-details">
+                                            <span class="balance-title">Your Balance:</span>
+                                            <span class="balance-amount"><?= $user->currency_simbol . number_format($user->account_balance, 2, '.', ' ') ?></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 no-right no-left">
+                                <div class="app_content card lazyload">
+                <?php endif;?>
