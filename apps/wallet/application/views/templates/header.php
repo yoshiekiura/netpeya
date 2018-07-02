@@ -15,7 +15,7 @@
                     <div class="col-md-2 left">
                         <a href="" class="logo"><img src="/assets/svg/logos/logo.svg" /></a>
                     </div>
-                    <div class="col-md-6 center border-right border-left">
+                    <div class="col-md-7 center border-right border-left">
                         <div class="top-search-holder">
                             <div class="input-group-prepend input-group icon">
                                 <span class="input-group-text"><img class="icon" src="/assets/images/icons/search.png" /></span>
@@ -30,18 +30,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 right">
+                    <div class="col-md-3 right">
                         <nav>
                             <ul>
                                 <li class="user-menu">
-                                    <a class="dropdown-btn"><img class="user-pic" src="/assets/images/emmanuel.jpg" /><img class="icon" src="/assets/images/icons/menu.png" /></a>
+                                    <a class="dropdown-btn"><img class="user-pic" src="/assets/svg/icons/user.svg" /><img class="icon" src="/assets/svg/icons/sort.svg" /></a>
                                     <ul class="dropdown-content">
-									    <li>Preferences</li>
-									    <li><a href="/logout">Logout <i style="margin-left: 6px;" class="fas fa-power-off"></i></a></li>
+									    <li>Activity</li>
+									    <li><a href="/logout"><i style="margin-left: 6px;" class="fas fa-power-off"></i> Logout</a></li>
 									</ul>
                                 </li>
                                 <li>
-                                    <a class="nav-link notification"><img class="icon" src="/assets/images/icons/notification.png" /></a>
+                                    <a class="nav-link notification"><img class="icon" src="/assets/svg/icons/alerts.svg" /></a>
                                 </li>
                                 <li>
                                     <a class="nav-link balance"><?= $user->currency_simbol . ' ' .number_format($user->account_balance, 2, '.', ',') ?></a>
@@ -102,7 +102,7 @@
                 <div class="container">
                     <ul class="pull-left left">
                         <li>
-                            <a href="/dashboard" class="<?= $pageTitle == 'friends' ? 'active' : '' ?> nav-list">My friends</a>
+                            <a id="get_friends" href="" class="<?= $pageTitle == 'friends' ? 'active' : '' ?> nav-list">My friends</a>
                         </li>
                         <li>
                             <a id="add_friend_btn" href="" class="nav-add">Add a friend</a>

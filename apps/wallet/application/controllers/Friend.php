@@ -11,17 +11,20 @@ class Friend extends MY_Controller {
 			redirect('login');
 		}
 
-		$this->load->model('currency_model');
+		$this->load->model('friend_model');
 		$this->data['pageTitle'] = "friends";
 	}
 
-	public function index()
-	{
-		$this->load->view('friend/list', $this->data);
+	public function index() {
+		$this->data['friends'] = $this->friend_model->getAll();
+		$this->load->view('friend/all', $this->data);
 	}
 
-    public function add()
-    {
+	public function all() {
+		redirect('friend/all');
+	}
+
+    public function add() {
         $this->load->view('friend/add', $this->data);
     }
 }

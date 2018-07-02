@@ -10,12 +10,32 @@ class Auth extends MY_Controller {
 	public function login()
 	{
 
-		if ($this->netpeya_auth->logged_in())
-		{
-			redirect('dashboard');
-		}
-		$this->data['pageTitle'] = 'login';
-		$this->load->view('auth/login', $this->data);
+		$result = array();
+        $errors = array();
+
+        $this->form_validation->set_rules("email", "Email", "required");
+        $this->form_validation->set_rules("password", "Password", "required");
+
+        $user = array();
+        $email = $this->input->post("email");
+        $password = $this->input->post("password");
+
+        if ($this->form_validation->run()) {
+            $this->load->model('user_model');
+            $login_res = $this->user_model->login($email, $password);
+            if($login_res) {
+                $this->load->model('activity_model');
+                $this->activity_model->add(array(
+                    'type' => 'login',
+                    'description' => 'Account login'
+                ));
+                redirect('dashboard');
+            } else {
+	            
+            }
+        } else {
+            
+        }
 	}
 
 	public function logout() {

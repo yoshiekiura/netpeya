@@ -70,6 +70,7 @@ $route['transactions/all'] = 'transactions/all';
 $route['deposit'] = 'deposit';
 $route['deposit/forms/(:any)'] = 'deposit/forms/$1';
 $route['friend'] = 'friend';
+$route['friend/all'] = 'friend';
 $route['settings'] = 'settings';
 
 

@@ -47,6 +47,11 @@ class Ajax extends MY_Controller {
             $this->load->model('user_model');
             $login_res = $this->user_model->login($user['email'], $user['password']);
             if($login_res) {
+                $this->load->model('activity_model');
+                $this->activity_model->add(array(
+                    'type' => 'login',
+                    'description' => 'Account login'
+                ));
                 $result['success'] = true;
             } else {
 	            $result['success'] = false;
@@ -102,6 +107,11 @@ class Ajax extends MY_Controller {
                 );
 
                 if($update) {
+                    $this->load->model('activity_model');
+                    $this->activity_model->add(array(
+                        'type' => 'deposit',
+                        'description' => $deposit_method->name . ' deposit -  '. $this->data['user']->currency_simbol . $payment_data['amount']
+                    ));
                     return $this->load->view('deposit/success', $payment_data);
                 }
             }
@@ -119,9 +129,14 @@ class Ajax extends MY_Controller {
         if ($this->form_validation->run()) {
             $this->load->model('friend_model');
             $added_friend = $this->friend_model->add($friend);
-            if(!$added_friend) {
+            if($added_friend) {
                 $data = array();
                 $data['friend'] = $added_friend;
+                $this->load->model('activity_model');
+                $this->activity_model->add(array(
+                    'type' => 'friend',
+                    'description' => 'Added friend -  '. $added_friend->email
+                ));
                 return $this->load->view('friend/add_success', $data);
             }
         }

@@ -17,11 +17,13 @@ class Main extends MY_Controller {
 
 	public function index()
 	{
-		$this->load->view('dashboard', $this->data);
+		$this->dashboard();
 	}
 
 	public function dashboard()
 	{
+		$this->load->model('activity_model');
+		$this->data['activities'] = $this->activity_model->getAll(5);
 		$this->load->view('dashboard', $this->data);
 	}
 }

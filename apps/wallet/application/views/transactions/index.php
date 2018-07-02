@@ -5,10 +5,9 @@
 
 ?>
 <section class="transactions app-top border-top">
-    <div class="card side-search">
+    <div class="side-search">
         <form method="post" class="inline-form" action="/transactions">
             <div class="form-group">
-                <label>Type</label>
                 <div class="input-group-append input-group">
                     <button class="dropdown-btn">All Transactions</button>
                     <ul class="dropdown-content">
@@ -21,15 +20,14 @@
             </div>
             <input type="hidden" name="transaction_type" value="3">
             <div class="form-group">
-                <label>from</label>
                 <input type="date" name="search_date_from" id="search_date_from" class="fomr-control"  format="yyyy-mm-dd" />
             </div>
-            <div class="form-group">
                 <label>to</label>
+            <div class="form-group">
                 <input type="date" name="search_date_to" id="search_date_to" class="fomr-control"  format="yyyy-mm-dd" />
             </div>
             <div class="form-group">
-                <button class="btn btn-blue full-width mt-3"><span>Search</span></button>
+                <button class="btn btn-blue full-width"><span>Search</span></button>
             </div>
         </form>
     </div>
@@ -59,9 +57,11 @@
             <h4 class="text-center no-transactions">No transactions</h4>
         <?php endif; ?>
     </div>
-    <span>Showing <?= $index + 1 ?> - <?= $index + $results_count ?> of <?= $total_results ?></span>
-    <?php if (isset($links)): ?>
-        <?= $links ?>
+    <?php if(count($transactions) > 0): ?>
+        <span>Showing <?= $index + 1 ?> - <?= $index + $results_count ?> of <?= $total_results ?></span>
+        <?php if (isset($links)): ?>
+            <?= $links ?>
+        <?php endif; ?>
     <?php endif; ?>
 </section>
 <?php $CI->load->view('templates/footer'); ?>

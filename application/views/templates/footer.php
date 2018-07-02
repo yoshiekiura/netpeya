@@ -127,9 +127,9 @@
           <!-- Content -->
           <div class="js-scrollbar u-sidebar__body">
             <div class="u-sidebar__content u-header-sidebar__content">
-              <form class="js-validate">
+              <div>
                 <!-- Signup -->
-                <div id="signup" style="display: none; opacity: 0;" data-target-group="idForm">
+                <form id="wallet_signup_form" class="js-validate" style="display: none; opacity: 0;" data-target-group="idForm">
                   <!-- Title -->
                   <header class="text-center mb-7">
                     <h2 class="h4 mb-0">Welcome to Xannia.</h2>
@@ -198,7 +198,7 @@
                   <div class="text-center mb-4">
                     <span class="small text-muted">Already have an account?</span>
                     <a class="js-animation-link small" href="javascript:;"
-                       data-target="#login"
+                       data-target="#wallet_login_form"
                        data-link-group="idForm"
                        data-animation-in="slideInUp">Login
                     </a>
@@ -220,10 +220,10 @@
                     </a>
                   </div>
                   <!-- End Login Buttons -->
-                </div>
+                </form>
                 <!-- End Signup -->
                 <!-- Login -->
-                <div id="login" data-target-group="idForm">
+                <form id="wallet_login_form" action="http://local.wallet.netpeya.com/login" method="post" class="js-validate" data-target-group="idForm">
                   <!-- Title -->
                   <header class="text-center mb-7">
                     <h2 class="h4 mb-0">Welcome Back!</h2>
@@ -275,13 +275,13 @@
                   </div>
 
                   <div class="mb-2">
-                    <button type="submit" class="btn btn-block btn-success u-btn-success transition-3d-hover">Login</button>
+                    <button id="wallet_login_btn" type="submit" class="btn btn-block btn-success u-btn-success transition-3d-hover">Login</button>
                   </div>
 
                   <div class="text-center mb-4">
                     <span class="small text-muted">Do not have an account?</span>
                     <a class="js-animation-link small" href="javascript:;"
-                       data-target="#signup"
+                       data-target="#wallet_signup_form"
                        data-link-group="idForm"
                        data-animation-in="slideInUp">Signup
                     </a>
@@ -303,7 +303,7 @@
                     </a>
                   </div>
                   <!-- End Login Buttons -->
-                </div>
+                </form>
 
 
                 <!-- Forgot Password -->
@@ -347,7 +347,7 @@
                   </div>
                 </div>
                 <!-- End Forgot Password -->
-              </form>
+              </div>
             </div>
           </div>
           <!-- End Content -->

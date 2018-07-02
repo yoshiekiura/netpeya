@@ -1,6 +1,6 @@
 
 body {
-  background-color: #eceeee!important;
+  background-color: #f0f1f3!important;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 15px;
@@ -48,7 +48,8 @@ a:hover {
     background-color: #fff;
     padding: 0;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1);
-    min-width: 100px;
+    min-width: 130px;
+    text-align: right;
     width: 100%;
     list-style: none;
     z-index: 1000;
@@ -126,10 +127,8 @@ header .right .user-menu .dropdown-btn::after {
 }
 
 header .right .user-pic {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin-right: 10px;
+  width: 24px;
+  height: 24px;
 }
 
 header a.nav-link {
@@ -283,79 +282,31 @@ header nav ul li {
     vertical-align: middle;
     background-color: #ffffff;
     margin-right: 10px;
-    color: #394047;
-    background-size: 17px;
-    background-position: 9px;
-    background-repeat: no-repeat;
+    color: #888888;
     border-radius: 3px;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 11px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
 }
 
-.secondary-nav ul li a.deposit, .secondary-nav ul li a.withdraw {
-  padding: 8px 12px;
-}
-
-.secondary-nav ul li a.nav-dashboard {
-  background-image: url('../images/icons/dashboard.png');
-}
-
-.secondary-nav ul li a.nav-dashboard.active,
-.secondary-nav ul li a.nav-dashboard:hover,
-.secondary-nav ul li a.nav-dashboard:focus {
-  background-image: url('../images/icons/dashboard-white.png');
-}
-
-.secondary-nav ul li a.nav-history {
-  background-image: url('../images/icons/list.png');
-}
-
-.secondary-nav ul li a.nav-history.active,
-.secondary-nav ul li a.nav-history:hover,
-.secondary-nav ul li a.nav-history:focus {
-  background-image: url('../images/icons/list-white.png');
-}
-
-.secondary-nav ul li a.nav-send-receive {
-  background-image: url('../images/icons/send-receive.png');
-}
-
-.secondary-nav ul li a.nav-send-receive.active,
-.secondary-nav ul li a.nav-send-receive:hover,
-.secondary-nav ul li a.nav-send-receive:focus {
-  background-image: url('../images/icons/send-receive-white.png');
-}
-
-.secondary-nav ul li a.nav-exchange {
-  background-image: url('../images/icons/exchange.png');
-}
-
-.secondary-nav ul li a.nav-exchange.active,
-.secondary-nav ul li a.nav-exchange:hover,
-.secondary-nav ul li a.nav-exchange:focus {
-  background-image: url('../images/icons/exchange-white.png');
-}
-
-.secondary-nav ul li a.nav-friends {
-  background-image: url('../images/icons/social.png');
-}
-
-.secondary-nav ul li a.nav-friends.active,
-.secondary-nav ul li a.nav-friends:hover,
-.secondary-nav ul li a.nav-friends:focus {
-  background-image: url('../images/icons/social-white.png');
-}
-
-.secondary-nav ul li a.nav-settings {
-  background-image: url('../images/icons/settings.png');
-}
-
-.secondary-nav ul li a.nav-settings.active,
-.secondary-nav ul li a.nav-settings:hover,
-.secondary-nav ul li a.nav-settings:focus {
-  background-image: url('../images/icons/settings-white.png');
+.secondary-nav ul li a:before {
+  position: absolute;
+  left: 6px;
+  top: 0;
+  content: '';
+  width: 20px!important;
+  height: 100%;
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .secondary-nav ul li a:hover, .secondary-nav ul li a:focus, .secondary-nav ul li a.active {
-  background-color: #4095eb;
+  background-color: #377dff;
   margin-right: 10px;
   color: #fff;
   outline: none;
@@ -363,10 +314,75 @@ header nav ul li {
   box-shadow: 0 4px 17px rgba(142, 144, 145, 0.35)!important;
 }
 
+.secondary-nav ul li a.deposit, .secondary-nav ul li a.withdraw {
+  padding: 8px 12px;
+}
+
+.secondary-nav ul li a.nav-dashboard:before {
+  background-image: url('../svg/icons/home.svg');
+}
+
+.secondary-nav ul li a.nav-dashboard.active:before,
+.secondary-nav ul li a.nav-dashboard:hover:before,
+.secondary-nav ul li a.nav-dashboard:focus:before {
+  background-image: url('../svg/icons/home-white.svg');
+}
+
+.secondary-nav ul li a.nav-history:before {
+  background-image: url('../svg/icons/history.svg');
+}
+
+.secondary-nav ul li a.nav-history.active:before,
+.secondary-nav ul li a.nav-history:hover:before,
+.secondary-nav ul li a.nav-history:focus:before {
+  background-image: url('../svg/icons/history-white.svg');
+}
+
+.secondary-nav ul li a.nav-send-receive:before {
+  background-image: url('../svg/icons/send.svg');
+}
+
+.secondary-nav ul li a.nav-send-receive.active:before,
+.secondary-nav ul li a.nav-send-receive:hover:before,
+.secondary-nav ul li a.nav-send-receive:focus:before {
+  background-image: url('../svg/icons/send-white.svg');
+}
+
+.secondary-nav ul li a.nav-exchange:before {
+  background-image: url('../images/icons/exchange.png');
+}
+
+.secondary-nav ul li a.nav-exchange.active:before,
+.secondary-nav ul li a.nav-exchange:hover:before,
+.secondary-nav ul li a.nav-exchange:focus:before {
+  background-image: url('../images/icons/exchange-white.png');
+}
+
+.secondary-nav ul li a.nav-friends:before {
+  background-image: url('../svg/icons/friends.svg');
+}
+
+.secondary-nav ul li a.nav-friends.active:before,
+.secondary-nav ul li a.nav-friends:hover:before,
+.secondary-nav ul li a.nav-friends:focus:before {
+  background-image: url('../svg/icons/friends-white.svg');
+}
+
+.secondary-nav ul li a.nav-settings:before {
+  background-image: url('../svg/icons/settings.svg');
+}
+
+.secondary-nav ul li a.nav-settings.active:before,
+.secondary-nav ul li a.nav-settings:hover:before,
+.secondary-nav ul li a.nav-settings:focus:before {
+  background-image: url('../svg/icons/settings-white.svg');
+}
+
 .secondary-nav ul li a .icon {
   margin-right: 10px;
   position: relative;
   top: -2px;
+  height: 15px;
 }
 
 .secondary-nav ul.right li:last-child a {
@@ -379,7 +395,7 @@ header nav ul li {
 }
 
 .secondary-nav ul.right li a.withdraw {
-  background-color: #4095eb;
+  background-color: #377dff;
   color: #fff;
 }
 
@@ -405,7 +421,10 @@ main .lazyload > * {
 }
 
 main .lazyload.loaded {
-  background-image: none;
+  background-image: url('../svg/logos/logo-short-grey.svg');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center right;
 }
 
 main .lazyload.loaded > * {
@@ -455,141 +474,102 @@ main .app_content {
   display: block;
 }
 
-.dashboard-balances-card-header {
-  position: relative;
-  font-size: 16px;
-  color: #394047;
+.dashboard .activity-holder {
+  padding: 35px 20px 20px 40px;
 }
 
-.dashboard-balances-card-header span {
-  position: absolute;
-}
-
-.balances .add-currency {
-  position: absolute;
-  right: 25px;
-  bottom: 30px;
-  height: 48px;
-  width: 48px;
-  background-color: #4eb929;
-  background-image: url('../images/icons/add-white.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  border-radius: 50%;
-  z-index: 99;
-}
-
-.balances .add-currency:hover {
-  border-radius: 25px;
-  background-position: 15px;
-  width: auto;
-}
-
-.balances .add-currency:hover:after {
-  content: "add currency";
-  line-height: 48px;
-  color: #fff;
-  padding: 0 15px 0 40px;
-}
-
-.dashboard-balances-card-header span.pull-left {
-  left: 0;
-}
-
-.dashboard-balances-card-header span.pull-right {
-  right: 0;
-}
-
-.dashboard-currency-slider .slide {
-  height: -webkit-fill-available;
-}
-
-.carousel-indicators li {
-  background-color: #f8f9fa;
-}
-
-.carousel-indicators .active {
-    background-color: #4eb929;
-}
-
-.dashboard-currency-slider .carousel-item .currency-holder .currency-balance {
-  color: #4eb929;
-}
-
-.dashboard-currency-slider .carousel-item.low-balance .currency-holder .currency-balance {
-  color: #eb8820;
-}
-.dashboard-currency-slider .currency-holder .currency-flag {
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border: 10px solid #fff;
-  position: relative;
-  margin: 0 auto;
-}
-
-.dashboard-currency-slider .currency-holder .flag-outer-circle .currency-code {
-  font-size: 20px;
-  font-weight: 700;
-  color: #394047;
-  position: relative;
-  z-index: 2;
-}
-
-.dashboard-currency-slider .currency-holder .currency-name {
-  font-size: 20px;
-  font-weight: 700;
-  padding: 0 0 20px 0;
-}
-
-.dashboard-currency-slider .currency-holder .currency-balance {
-  font-size: 40px;
-  font-weight: 300;
-  padding: 20px 0;
-}
-
-.dashboard-currency-slider .currency-holder .currency-actions ul {
-  list-style: none;
+.dashboard .activity-holder .title {
+  font-size: 14px;
+  padding-left: 28px;
   margin: 0;
-  padding: 0;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
-.dashboard-currency-slider .currency-holder .currency-actions ul li {
-  display: inline-block;
-}
-
-.dashboard-currency-slider .currency-holder .currency-actions ul li a {
-  padding: 6px 15px;
-  border-radius: 25px;
-  background-color: #e9ecee;
+.dashboard .activity-holder p .view-more {
   color: #394047;
-  margin: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 
-.dashboard-currency-slider .currency-holder .currency-actions ul li a:hover {
+.dashboard .activity-holder p .view-more img {
+  position: relative;
+  top: -1px;
+}
+
+.dashboard .activity-holder p .view-more:hover,
+.dashboard .activity-holder p .view-more:focus {
+  color: #377dff;
   text-decoration: none;
 }
 
-.dashboard-currency-slider .currency-holder .currency-actions ul li a.deposit {
+.dashboard .activity-holder .title:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 100%;
+  background-image: url('../svg/icons/chat.svg');
+  background-repeat: no-repeat;
+  background-size: 20px;
+}
+
+.dashboard .activity-holder .title .icon {
+  width: 40px;
+  font-size: 25px;
+}
+
+.dashboard .activity-holder .activity-list {
+  margin-top: 15px;
+  padding-left: 0;
+}
+
+.dashboard .activity-holder .activity-list li {
+  padding: 10px 0;
+  list-style: none;
+}
+
+.dashboard .activity-holder .activity-list li .sub-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 28px;
+  margin: 0;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.dashboard .activity-holder .activity-list li .sub-title:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 100%;
+  background-image: url('../svg/icons/time.svg');
+  background-repeat: no-repeat;
+  background-size: 24px;
+}
+
+.dashboard .activity-holder .activity-list ul {
+  position: relative;
+}
+
+.dashboard .activity-holder .activity-list ul:before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 100%;
   background-color: #4eb929;
-  color: #fff;
 }
 
-.carousel-control-next, .carousel-control-prev {
-  display: block;
-  opacity: 1;
-  width: auto;
-  top: 25px;
-}
-
-.carousel-control-next {
-  right: 25px;
-}
-
-.carousel-control-prev {
-  left: 25px;
+.dashboard .activity-holder .activity-list ul li {
+  padding-left: 15px;
 }
 
 .transactions .card {
@@ -604,7 +584,7 @@ main .app_content {
 }
 
 .transactions .side-search {
-  padding: 15px;
+  display: grid;
 }
 
 .transactions .side-search form {
@@ -621,11 +601,11 @@ main .app_content {
   margin-left: 0;
 }
 
-.transactions .side-search form .form-group:last-child {
+/*.transactions .side-search form .form-group:last-child {
   min-height: 80px;
   display: flex;
   align-items: flex-end;
-}
+}*/
 
 .transactions .side-search .dropdown-btn {
   border: 1px solid #eee;
@@ -818,6 +798,7 @@ main .app_content {
 
 .deposit-form .form #deposit_amount {
   border: none;
+  background-color: transparent;
   border-bottom: 1px solid #F0F2F5;
   border-radius: 0;
   text-align: center;
@@ -915,8 +896,8 @@ main .app_content {
 }
 
 .btn-blue {
-  background-color: #4095eb;
-  border: 1px solid #4095eb;
+  background-color: #377dff;
+  border: 1px solid #377dff;
   height: 50px;
   position: relative;
   text-align: center;

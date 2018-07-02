@@ -247,4 +247,44 @@
 
   $.HSCore.init();
 
+  $(document).on('click', '#wallet_login_btn', function(e) {
+    e.preventDefault();
+
+    if(validateForm('#wallet_login_form')) {
+      var user = {};
+            var data = $('#wallet_login_form').serializeArray().reduce(function (obj, item) {
+                user[item.name] = item.value;
+                return user;
+            }, {});
+
+            $('.errors').empty().hide();
+
+            $.ajax({
+                url: 'local.wallet.netpeya.com/ajax/login',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    'user': JSON.stringify(data)
+                },
+                success: function (data, textStatus, xhr) {
+                    if (data.data.success && data['errors'].length == 0) {
+                        location.href = "local.wallet.netpeya.com/dashboard";
+
+                    } else {
+
+                      if(data['errors'] !== null) {
+                        if(data['errors'].length > 0) {
+                          $.each(data['errors'], function(v, t) {
+                            $('#login_form .errors').show().append('<p>' + t + '</p>');
+                          });
+                        }
+                      }
+                    }
+                }
+            });
+    } else {
+      return false;
+    }
+  });
+
 })(jQuery);

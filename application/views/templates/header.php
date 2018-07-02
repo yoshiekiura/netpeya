@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- Title -->
-  <title>Xannia - Pay with confidence</title>
+  <title>Netpeya - Pay with confidence</title>
 
   <!-- Required Meta Tags Always Come First -->
   <meta charset="utf-8">
