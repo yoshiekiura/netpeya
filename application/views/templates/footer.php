@@ -223,7 +223,7 @@
                 </form>
                 <!-- End Signup -->
                 <!-- Login -->
-                <form id="wallet_login_form" action="http://wallet.netpeya.com/login" method="post" class="js-validate" data-target-group="idForm">
+                <form id="wallet_login_form" action="http://local.wallet.netpeya.com/login" method="post" class="js-validate" data-target-group="idForm">
                   <!-- Title -->
                   <header class="text-center mb-7">
                     <h2 class="h4 mb-0">Welcome Back!</h2>
