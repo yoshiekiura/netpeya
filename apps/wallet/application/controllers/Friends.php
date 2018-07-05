@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Friend extends MY_Controller {
+class Friends extends MY_Controller {
 
 	public function __construct() {
 		parent::__construct();
@@ -17,14 +17,19 @@ class Friend extends MY_Controller {
 
 	public function index() {
 		$this->data['friends'] = $this->friend_model->getAll();
-		$this->load->view('friend/all', $this->data);
+		$this->load->view('friends/all', $this->data);
 	}
 
 	public function all() {
-		redirect('friend/all');
+		redirect('friends/all');
 	}
 
     public function add() {
-        $this->load->view('friend/add', $this->data);
+        $this->load->view('friends/add', $this->data);
+    }
+
+    public function edit($id) {
+    	$this->data['friend'] = $this->friend_model->getById($id);
+        $this->load->view('friends/edit', $this->data);
     }
 }

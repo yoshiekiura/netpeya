@@ -26,7 +26,7 @@ class Friend_model extends MY_Model {
 
 	public function getAll()
 	{
-		$query = $this->db->get_where($this->table, array('is_active' => 1, 'user_id' => $this->user_id));
+		$query = $this->db->order_by('ts_created', 'desc')->get_where($this->table, array('is_active' => 1, 'user_id' => $this->user_id));
 		return $query->result();
 	}
 

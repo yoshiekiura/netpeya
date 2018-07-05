@@ -110,7 +110,7 @@ class Ajax extends MY_Controller {
                     $this->load->model('activity_model');
                     $this->activity_model->add(array(
                         'type' => 'deposit',
-                        'description' => $deposit_method->name . ' deposit -  '. $this->data['user']->currency_simbol . $payment_data['amount']
+                        'description' => $deposit_method->name . ' deposit -  '. $this->data['user']->currency_simbol . number_format($payment_data['amount'], 2, '.', ' ')
                     ));
                     return $this->load->view('deposit/success', $payment_data);
                 }

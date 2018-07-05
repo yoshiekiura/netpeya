@@ -140,8 +140,66 @@ header a.nav-link {
     padding: 0 6px;
 }
 
-header a.nav-link.notification {
-  padding: 0 22px;
+header .notification {
+    position: relative;
+}
+
+header .notification a.nav-link {
+  height: 20px;
+  width: 22px;
+  background-image: url('../svg/icons/alerts.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #888888;
+  background-size: 16px;
+  border-radius: 2px;
+  margin: 0 18px;
+}
+
+header .notification.alerts a.nav-link {
+  background-image: url('../svg/icons/alerts-red.svg');
+  background-color: #fce8e6;
+}
+
+header .notification p {
+  display: none;
+  position: absolute;
+  font-size: 10px;
+  font-weight: 700;
+  color: #d93025;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+header .notification .dropdown-btn:after {
+  display: none;
+}
+
+header .notification .dropdown-content {
+  font-size: 12px;
+  padding: 20px;
+  min-width: 250px;
+}
+
+header .notification .dropdown-content li {
+  margin-bottom: 6px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+header .notification .dropdown-content li.warning {
+  background-color: #fce8e6;
+  color: #d93025;
+}
+
+header .notification .dropdown-content li.success {
+  background-color: rgba(78, 185, 41, 0.1);
+  color: #4eb929;
+}
+
+header .notification.alerts p {
+  display: block;
 }
 
 header a.nav-link.balance {
@@ -156,8 +214,8 @@ header a.nav-link.lang {
 }
 
 header a.nav-link.lang .lang-select {
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
   text-align: center;
   background-size: cover;
@@ -246,7 +304,7 @@ header nav ul li {
   padding: 15px 10px 15px 0;
   position: relative;
   top: 2px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .third-nav ul li input {
@@ -484,20 +542,19 @@ main .app_content {
   margin: 0;
   text-transform: uppercase;
   font-weight: 600;
-  display: flex;
-  align-items: center;
   position: relative;
 }
 
-.dashboard .activity-holder p .view-more {
+.dashboard .activity-holder .title .view-more {
   color: #394047;
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 13px;
 }
 
-.dashboard .activity-holder p .view-more img {
+.dashboard .activity-holder .title .view-more img {
   position: relative;
+  width: 14px;
   top: -1px;
 }
 
@@ -525,13 +582,17 @@ main .app_content {
 }
 
 .dashboard .activity-holder .activity-list {
-  margin-top: 15px;
+  margin-top: 30px;
   padding-left: 0;
 }
 
 .dashboard .activity-holder .activity-list li {
-  padding: 10px 0;
+  padding: 15px 0;
   list-style: none;
+}
+
+.dashboard .activity-holder .activity-list li.single-activity {
+  padding: 0;
 }
 
 .dashboard .activity-holder .activity-list li .sub-title {
@@ -539,7 +600,8 @@ main .app_content {
   display: flex;
   align-items: center;
   padding-left: 28px;
-  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-size: 15px;
   text-transform: uppercase;
 }
@@ -569,7 +631,18 @@ main .app_content {
 }
 
 .dashboard .activity-holder .activity-list ul li {
-  padding-left: 15px;
+  padding-left: 18px;
+  position: relative;
+}
+
+.dashboard .activity-holder .activity-list ul li:before {
+    width: 12px;
+    height: 1px;
+    position: absolute;
+    background-color: #4eb929;
+    content: '';
+    left: 0;
+    top: 50%;
 }
 
 .transactions .card {
@@ -1245,6 +1318,10 @@ footer .footer-bottom ul li a {
     background-color: #666;
 }
 
+.creditcard-form .form-group {
+  margin-bottom:  1rem;
+}
+
 .creditcard-form .form-control {
   width: 100%;
   margin: 0;
@@ -1549,9 +1626,9 @@ form .form-group .input-group .label-holder.focus {
   background-color: #fff;
   padding: 0 5px;
   top: 20px;
-  color: #313131;
+  color: #888888;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 form .form-group .input-group .form-control {
@@ -1567,7 +1644,7 @@ form .form-group .input-group .form-control {
     padding: 16px 16px;
     border-width: 1px;
     border-style: solid;
-    border-color: rgb(208, 213, 223);
+    border-color: #dee2e6;
     border-image: initial;
     border-radius: 4px;
     background: rgb(255, 255, 255);
@@ -1608,10 +1685,6 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 
 input.error {
   color: #d93025!important;
-}
-
-.form-group {
-
 }
 
 .ajax-btn-holder .ajax-loading {
@@ -1692,10 +1765,119 @@ input.error {
   margin-right: 10px;
 }
 
+.friends .friends-holder .single-friend {
+  padding: 20px 0;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.friends .friends-holder .single-friend:hover {
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+.friends .friends-holder .single-friend p {
+  margin: 0;
+  line-height: 30px;
+}
+
+.friends .friends-holder .single-friend .friend-abrv {
+  height: 30px;
+  width: 35px;
+  border-radius: 3px;
+  background-color: #888888;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.friends .friends-holder .single-friend:nth-child(even) .friend-abrv {
+  background-color: #4eb929;
+}
+
+.friends .friends-holder .single-friend .btn {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px;
+  width: 40px;
+  height: 30px;
+  margin-left: 10px;
+  padding: 0;
+  background-color: #888888;
+  opacity: 0;
+}
+
+.friends .friends-holder .single-friend .btn.transact_friend_btn {
+  background-image: url('../svg/icons/send-white.svg');
+  background-color: #377dff;
+}
+
+.friends .friends-holder .single-friend:hover .btn.hot_friend_btn {
+  background-image: url('../svg/icons/hot.svg');
+}
+
+.friends .friends-holder .single-friend:hover .btn.edit_friend_btn {
+  background-image: url('../svg/icons/edit.svg');
+}
+
+.friends .friends-holder .single-friend:hover .btn {
+  opacity: 1;
+}
+
+.friends .friend-form {
+  padding: 0 50px;
+}
+
+.friends .friend-form .header {
+  padding: 20px 0 40px 0;
+}
+
+.friends .friend-form .title {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 600;
+}
+
+.friends .friend-form button {
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 40px;
+  height: 50px;
+}
+
+.friends #friend_edit_form .friend-profile {
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 50%;
+  background-color: #888888;
+  color: #fff;
+  margin: 0 auto;
+  margin-bottom: 35px;
+}
+
 /*.deposit .dashboard-top .card {
   height: auto;
   min-height: 420px;
 }*/
+
+.back {
+  color: #888;
+  text-transform: uppercase;
+  background-image: url('../images/icons/arrow-left.png');
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-left: 20px;
+}
+
+.back:hover {
+  color: #777;
+}
 
 .dashboard-top .balances .card {
   padding: 0;
@@ -1766,6 +1948,7 @@ input.error {
 
 .form-group {
   position: relative;
+  margin-bottom: 2.5rem;
 }
 
 button:hover, button:focus, button:active {

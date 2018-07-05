@@ -22,7 +22,7 @@
                             </div>
                             <input type="text" class="form-control" placeholder="Transactions, friends or help">
                             <div class="input-group-append input-group">
-                                <span class="input-group-text dropdown-btn dropdown-btn" >Currences</span>
+                                <span class="input-group-text dropdown-btn" >Currences</span>
                                 <ul class="dropdown-content">
 								    <li>Currency</li>
 								    <li>Crypto</li>
@@ -36,16 +36,22 @@
                                 <li class="user-menu">
                                     <a class="dropdown-btn"><img class="user-pic" src="/assets/svg/icons/user.svg" /><img class="icon" src="/assets/svg/icons/sort.svg" /></a>
                                     <ul class="dropdown-content">
-									    <li>Activity</li>
-									    <li><a href="/logout"><i style="margin-left: 6px;" class="fas fa-power-off"></i> Logout</a></li>
+                                        <li><img src="/assets/svg/icons/settings.svg" /> Settings</li>
+									    <li><img src="/assets/svg/icons/chat.svg" /> Activity</li>
+									    <li><a href="/logout"><img src="/assets/svg/icons/logout.svg" /> Logout</a></li>
 									</ul>
                                 </li>
-                                <li>
-                                    <a class="nav-link notification"><img class="icon" src="/assets/svg/icons/alerts.svg" /></a>
+                                <li class="notification alerts">
+                                    <a class="nav-link dropdown-btn"></a>
+                                    <p>2</p>
+                                    <ul class="dropdown-content">
+                                        <li class="success">You have received money from Oleen!</li>
+                                        <li class="warning">Upload FICA documents.</li>
+                                    </ul>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a class="nav-link balance"><?= $user->currency_simbol . ' ' .number_format($user->account_balance, 2, '.', ',') ?></a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a class="nav-link lang dropdown-btn">
                                         <p class="lang-select" style="background-image: url('/assets/svg/countries/gbp.svg')"></p>
@@ -75,7 +81,7 @@
                         <a href="/transactions" class="<?= $pageTitle == 'transactions' ? 'active' : '' ?> nav-history">History</a>
                     </li>
                     <li>
-                        <a href="/friend" class="<?= $pageTitle == 'friends' ? 'active' : '' ?> nav-friends">Friends</a>
+                        <a href="/friends" class="<?= $pageTitle == 'friends' ? 'active' : '' ?> nav-friends">Friends</a>
                     </li>
                     <li>
                         <a href="" class="nav-send-receive">Send/Request</a>
@@ -83,16 +89,16 @@
                     <!-- <li>
                         <a href="" class="nav-exchange">Exchange</a>
                     </li> -->
-                    <li>
+                    <!-- <li>
                         <a href="/settings" class="<?= $pageTitle == 'settings' ? 'active' : '' ?> nav-settings">Settings</a>
-                    </li>
+                    </li> -->
                 </ul>
                 <ul class="pull-right right">
                     <li>
-                        <a href="/deposit" class="deposit"><img class="icon" src="/assets/images/icons/arrow-up-white.png" /> Deposit</a>
+                        <a href="/deposit" class="deposit"><img class="icon" src="/assets/images/icons/deposit-white.png" /> Deposit</a>
                     </li>
                     <li>
-                        <a href="" class="withdraw"><img class="icon" src="/assets/images/icons/arrow-down-white.png" /> Withdraw</a>
+                        <a href="" class="withdraw"><img class="icon" src="/assets/images/icons/withdraw-white.png" /> Withdraw</a>
                     </li>
                 </ul>
             </div>
@@ -102,10 +108,10 @@
                 <div class="container">
                     <ul class="pull-left left">
                         <li>
-                            <a id="get_friends" href="" class="<?= $pageTitle == 'friends' ? 'active' : '' ?> nav-list">My friends</a>
+                            <a href="/friends" class="<?= $pageTitle == 'friends' ? 'active' : '' ?> nav-list">My friends</a>
                         </li>
                         <li>
-                            <a id="add_friend_btn" href="" class="nav-add">Add a friend</a>
+                            <a href="/friends/add" class="nav-add">Add a friend</a>
                         </li>
                     </ul>
                 </div>
@@ -146,7 +152,7 @@
                                         <div class="user-currency" style="background-image: url('/assets/svg/countries/<?= strtolower($user->currency_code) ?>.svg');"></div>
                                         <div class="balance-details">
                                             <span class="balance-title">Your Balance:</span>
-                                            <span class="balance-amount"><?= $user->currency_simbol . number_format($user->account_balance, 2, '.', ' ') ?></span>
+                                            <span class="balance-amount green-text"><?= $user->currency_simbol . number_format($user->account_balance, 2, '.', ' ') ?></span>
                                         </div>
                                     </div>
                                 </div>

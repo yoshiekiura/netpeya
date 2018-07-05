@@ -42,11 +42,11 @@ class Activity_model extends MY_Model {
 			$date = $r->date;
 			$now = time();
 			$db_time = strtotime($date);
-			$datediff = round(($now - $db_time) / (60 * 60 * 24)) - 1;
+			$datediff = ($now - $db_time) / (60 * 60 * 24);
 			if($datediff < 1) {
 				$date = 'Today';
 			} elseif($datediff <= 30) {
-				$date = ($datediff < 2 ? 'A day' : $datediff . ' days') . ' ago';
+				$date = $datediff < 2 ? 'Yesterday' : $datediff . ' days ago';
 			}
 
 			$r->time = date("H:i:s", strtotime($r->ts_created));

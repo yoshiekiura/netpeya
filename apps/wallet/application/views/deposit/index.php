@@ -7,17 +7,17 @@
 <div class="deposit-form p-3">
     <form class="form" method="post" action="/deposit/pay">
         <div class="form-group">
-            <input type="text" id="deposit_amount" value="10" name="deposit_amount" class="form-control">
+            <input type="text" id="deposit_amount" value="<?= $default_amount ?>" name="deposit_amount" class="form-control">
             <input type="hidden" id="method" name="method" value="creditcard">
             <span class="amount-label">Amount</span>
         </div>
         <div class="form-group">
             <div class="dropdown-holder method-select">
                 <button class="dropdown-btn">
-                    <img class="method-logo" src="assets/images/payment_methods/creditcard.svg" />
+                    <img class="method-logo" src="<?= $default_method->logo ?>" />
                     <p>
                         <span class="label">Deposit method</span>
-                        <span class="method-name">Credit/Debit card</span>
+                        <span class="method-name"><?= $default_method->name ?></span>
                     </p>
                 </button>
                 <ul class="dropdown-content">
@@ -28,8 +28,8 @@
             </div>
         </div>
         <div class="form-group">
-            <p class="text-center"><strong>Fees: <span id="selected-method-fees">10</span><span>%</span></strong></p>
-            <button id="deposit_continue_btn" class="submit btn-green">Continue - <?= $user->currency_simbol ?><span id="btn_deposit_amount" class="btn-amount">10.00</span></button>
+            <p class="text-center"><strong>Fees: <span id="selected-method-fees"><?= ($default_method->internal_fee + $default_method->external_fee) ?></span><span>%</span></strong></p>
+            <button id="deposit_continue_btn" class="submit btn-green">Continue - <?= $user->currency_simbol ?><span id="btn_deposit_amount" class="btn-amount"><?= $default_payment_with_charges ?></span></button>
         </div>
     </form>
 </div>

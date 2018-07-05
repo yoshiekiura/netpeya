@@ -20,6 +20,11 @@ class Depositmethod_model extends MY_Model {
 		return $query->row();
 	}
 
+	public function getDefault() {
+		$query = $this->db->get_where($this->table, array('is_active' => 1, 'is_default' => 1));
+		return $query->row();
+	}
+
 	public function getBySlug($slug) {
 		$query = $this->db->get_where($this->table, array('is_active' => 1, 'slug' => $slug));
 		return $query->row();

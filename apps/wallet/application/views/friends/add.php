@@ -1,10 +1,15 @@
 <?php
     defined('BASEPATH') OR exit('No direct script access allowed');
     $CI = & get_instance();
+    $CI->load->view('templates/header');
+
 ?>
-<form id="friend_form" class="add-friend-form p-3">
-    <h2 class="text-center">Add a friend</h2>
-    <div class="webkit-box">
+<form id="friend_form" class="friend-form">
+    <div class="header text-right">
+        <a href="/friends" class="back pull-left">Back</a>
+        <span class="text-center title">Add a friend<span>
+    </div>
+    <div class="row">
         <div class="col-md-6">
             <div class="form-group">
                 <div class="input-group">
@@ -32,9 +37,12 @@
                     <input type="text" tabindex="4" autocomplete="false" name="phone" class="form-control input-translate" />
                 </div>
             </div>
-            <div class="form-group">
-                <button id="do_add_friend" style="margin-top: 40px;height: 60px" class="submit btn-green full-width">Save</button>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group text-center">
+                <button id="do_add_friend" class="submit btn-green">Save</button>
             </div>
         </div>
     </div>
 </form>
+<?php $CI->load->view('templates/footer'); ?>

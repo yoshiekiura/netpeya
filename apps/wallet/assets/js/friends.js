@@ -1,8 +1,15 @@
 $(function() {
-	$(document).on('click', '#add_friend_btn', function(e) {
-        e.preventDefault();
-        getPage('friend/add');
-    });
+	// $(document).on('click', '#add_friend_btn', function(e) {
+ //        e.preventDefault();
+ //        window.location.hash += 'add';
+ //        getPage('friend/add');
+ //    });
+
+ //    $(document).on('click', '.edit_friend_btn', function(e) {
+ //        e.preventDefault();
+ //        var id = $(this).data('id');
+ //        getPage('friend/edit/'+ id);
+ //    });
 
 
     $(document).on('click', '#do_add_friend', function(e) {

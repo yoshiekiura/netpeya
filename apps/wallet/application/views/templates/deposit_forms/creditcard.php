@@ -1,5 +1,5 @@
 <form id="creditcard_form" class="deposit-method creditcard-form p-3">
-    <a href="/deposit" class="back"><img src="/assets/images/icons/arrow-left.png" /> Back</a>
+    <a href="/deposit" class="back">Back</a>
     <div class="text-center method-info"><img src="<?= $method->logo ?>" /> <span class="fade-text"><?= $method->name ?></span></div>
     <div class="card-wrapper">
         <input type="hidden" name="amount" value="<?= $amount ?>" />

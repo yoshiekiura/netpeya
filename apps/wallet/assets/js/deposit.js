@@ -1,4 +1,9 @@
 $(function() {
+
+    $(document).ready(function() {
+        
+    });
+
     $(document).on('click', '#deposit_continue_btn', function(e) {
         e.preventDefault();
         getPage('deposit/forms/' + $('#method').val().trim(), {amount: $('#deposit_amount').val().trim()});

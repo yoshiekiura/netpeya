@@ -66,18 +66,18 @@ $(document).ready(function() {
 		}
 	});
 
-    $(document).on('click', '.third-nav ul li a', function(e) {
-        e.preventDefault();
-        $('.third-nav ul li a').removeClass('active');
-        $(this).addClass('active');
-    });
+ //    $(document).on('click', '.third-nav ul li a', function(e) {
+ //        e.preventDefault();
+ //        $('.third-nav ul li a').removeClass('active');
+ //        $(this).addClass('active');
+ //    });
 
-	$('.pager').on('click', function(e) {
-		$('.pager').removeClass('active');
-		$(this).addClass('active');
-		var page = $(this).data('page');
-		getPage(page);
-	})
+	// $('.pager').on('click', function(e) {
+	// 	$('.pager').removeClass('active');
+	// 	$(this).addClass('active');
+	// 	var page = $(this).data('page');
+	// 	getPage(page);
+	// })
 
 
 	//================== AUTH ============================
