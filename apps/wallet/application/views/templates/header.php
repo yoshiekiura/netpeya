@@ -81,7 +81,7 @@
                         <a href="/transactions" class="<?= $pageTitle == 'transactions' ? 'active' : '' ?> nav-history">History</a>
                     </li>
                     <li>
-                        <a href="/friends" class="<?= $pageTitle == 'friends' ? 'active' : '' ?> nav-friends">Friends</a>
+                        <a href="/friends" class="<?= ($pageTitle == 'friends' || $pageTitle == 'friends add' || $pageTitle == 'friends edit') ? 'active' : '' ?> nav-friends">Friends</a>
                     </li>
                     <li>
                         <a href="" class="nav-send-receive">Send/Request</a>
@@ -103,15 +103,15 @@
                 </ul>
             </div>
         </nav>
-        <?php if($pageTitle == 'friends'): ?>
+        <?php if($pageTitle == 'friends' || $pageTitle == 'friends add' || $pageTitle == 'friends edit'): ?>
             <nav class="third-nav">
                 <div class="container">
                     <ul class="pull-left left">
                         <li>
-                            <a href="/friends" class="<?= $pageTitle == 'friends' ? 'active' : '' ?> nav-list">My friends</a>
+                            <a href="/friends" class="<?= ($pageTitle == 'friends' || $pageTitle == 'friends edit') ? 'active' : '' ?> nav-list">My friends</a>
                         </li>
                         <li>
-                            <a href="/friends/add" class="nav-add">Add a friend</a>
+                            <a href="/friends/add" class="<?= $pageTitle == 'friends add' ? 'active' : '' ?> nav-add">Add a friend</a>
                         </li>
                     </ul>
                 </div>

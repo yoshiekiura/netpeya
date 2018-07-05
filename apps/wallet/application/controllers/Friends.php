@@ -25,10 +25,12 @@ class Friends extends MY_Controller {
 	}
 
     public function add() {
+		$this->data['pageTitle'] = "friends add";
         $this->load->view('friends/add', $this->data);
     }
 
     public function edit($id) {
+		$this->data['pageTitle'] = "friends edit";
     	$this->data['friend'] = $this->friend_model->getById($id);
         $this->load->view('friends/edit', $this->data);
     }
