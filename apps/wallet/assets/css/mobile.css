@@ -76,6 +76,7 @@
 
 	footer nav ul li a img {
 		padding-bottom: 5px;
+		opacity: .4;
 	}
 
 	footer nav ul li a span {

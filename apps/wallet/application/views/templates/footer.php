@@ -23,25 +23,25 @@
         			<ul>
         				<li>
                         	<a href="/deposit" class="deposit">
-                        		<img class="icon" src="/assets/images/icons/arrow-up.png" />
+                        		<img class="icon" src="/assets/images/icons/deposit.png" />
                         		<span>deposit</span>
                         	</a>
 	                    </li>
 	                    <li>
 	                        <a href="" class="withdraw">
-	                        	<img class="icon" src="/assets/images/icons/arrow-down.png" />
+	                        	<img class="icon" src="/assets/images/icons/withdraw.png" />
                         		<span>withdraw</span>
 	                        </a>
 	                    </li>
         				<li>
                         	<a href="/deposit" class="deposit">
-                        		<img class="icon" src="/assets/images/icons/arrow-left.png" />
+                        		<img class="icon" src="/assets/images/icons/send.png" />
                         		<span>send</span>
                         	</a>
 	                    </li>
 	                    <li>
 	                        <a href="" class="withdraw">
-	                        	<img class="icon" src="/assets/images/icons/arrow-right.png" />
+	                        	<img class="icon" src="/assets/images/icons/request.png" />
                         		<span>request</span>
 	                        </a>
 	                    </li>
