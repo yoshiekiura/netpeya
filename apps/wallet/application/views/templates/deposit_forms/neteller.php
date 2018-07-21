@@ -1,6 +1,9 @@
+
+<div class="header text-right">
+    <a href="/deposit" class="back pull-left">Back</a>
+    <span class="text-center title"><?= $method->name ?><span>
+</div>
 <form id="neteller_form" class="deposit-method neteller-form p-3" autocomplete="new-all">
-    <a href="/deposit" class="back"><img src="/assets/images/icons/arrow-left.png" /> Back</a>
-    <div class="text-center method-info"><img src="<?= $method->logo ?>" /> <span class="fade-text"><?= $method->name ?></span></div>
     <div class="form-group">
         <div class="input-group">
             <div class="label-holder"><span>Neteller e-mail</span></div>
@@ -15,6 +18,6 @@
     </div>
     <div class="form-group ajax-btn-holder">
         <p class="text-center"><strong>Fees: <span id="selected-method-fees"><?= $total_fee ?></span><span>%</span></strong></p>
-        <button id="neteller_pay_btn" style="margin-top: 40px;height: 60px" class="submit btn-green ajax-btn full-width">Pay - <span class="select-currency-code"><?= $user->currency_simbol ?></span><span class="btn-amount"><?= $total_charge ?></span></button>
+        <button id="neteller_pay_btn" class="submit btn-green ajax-btn full-width"><i class="fa fa-lock mr-3"></i>Pay - <span class="select-currency-code"><?= $user->currency_simbol ?></span><span class="btn-amount"><?= $total_charge ?></span></button>
     </div>
 </form>

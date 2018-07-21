@@ -4,11 +4,11 @@
     $CI->load->view('templates/header');
 
 ?>
+<div class="header text-right">
+    <a href="/friends" class="back pull-left">Back</a>
+    <span class="text-center title">Friend edit<span>
+</div>
 <form id="friend_edit_form" class="friend-form">
-    <div class="header text-right">
-        <a href="/friends" class="back pull-left">Back</a>
-        <span class="text-center title">Friend edit<span>
-    </div>
     <p class="text-center friend-profile"><?= $friend->first_name[0] . $friend->last_name[0] ?></p>
     <div class="row">
         <div class="col-md-6">

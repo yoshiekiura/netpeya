@@ -7,35 +7,41 @@ class Auth extends MY_Controller {
 		parent::__construct();
 	}
 
-	public function login()
-	{
+	public function login() {
+		
+		if ($this->netpeya_auth->logged_in())
+		{
+			redirect('dashboard');
+		}
 
-		$result = array();
-        $errors = array();
+		$this->data['pageTitle'] = 'login';
 
-        $this->form_validation->set_rules("email", "Email", "required");
-        $this->form_validation->set_rules("password", "Password", "required");
+		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+			
+	        if ($this->form_validation->run('login')) {
 
-        $user = array();
-        $email = $this->input->post("email");
-        $password = $this->input->post("password");
+		        $email = $this->input->post("email");
+		        $password = $this->input->post("password");
 
-        if ($this->form_validation->run()) {
-            $this->load->model('user_model');
-            $login_res = $this->user_model->login($email, $password);
-            if($login_res) {
-                $this->load->model('activity_model');
-                $this->activity_model->add(array(
-                    'type' => 'login',
-                    'description' => 'Account login'
-                ));
-                redirect('dashboard');
-            } else {
-	            
-            }
-        } else {
-            
-        }
+	            $this->load->model('user_model');
+	            $login_res = $this->user_model->login($email, $password);
+	            if($login_res) {
+	                $this->load->model('activity_model');
+	                $this->activity_model->add(array(
+	                    'type' => 'Authentication',
+	                    'description' => 'Account login'
+	                ));
+	                redirect('dashboard');
+	            } else {
+	            	$this->session->set_flashdata('flash_erros', implode('', $this->user_model->get_errors()));
+		    		$this->load->view('auth/login', $this->data);
+	            }
+	        } else {
+		    	$this->load->view('auth/login', $this->data);
+	        }
+	    }
+
+	    $this->load->view('auth/login', $this->data);
 	}
 
 	public function logout() {
@@ -44,15 +50,39 @@ class Auth extends MY_Controller {
 		}
 	}
 
-	public function register()
-	{
-
+	public function register() {
 		if ($this->netpeya_auth->logged_in())
 		{
 			redirect('dashboard');
 		}
-		
+
 		$this->data['pageTitle'] = 'register';
+
+		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+			if ($this->form_validation->run('register')) {
+				$user = array();
+				$user['first_name'] = $this->input->post("first_name");
+		        $user['last_name'] = $this->input->post("last_name");
+				$user['email'] = strtolower($this->input->post("email"));
+		        $user['password'] = $this->input->post("password");
+		        $user['country_id'] = $this->input->post("country_id");
+		        $user['currency_id'] = $this->input->post("currency_id");
+		        $user['terms'] = $this->input->post("terms");
+
+		        $this->load->model('user_model');
+	            $reg_user = $this->user_model->add($user);
+	            if($reg_user) {
+	                redirect('activation/' . $reg_user['np_id']);
+	            } else {
+		            $this->session->set_flashdata('flash_erros', implode('', $this->user_model->get_errors()));
+		    		$this->load->view('auth/register', $this->data);
+	            }
+
+			} else {
+
+			}
+		}
+
 		$this->load->model('country_model');
 		$this->load->model('currency_model');
 		$this->data['countries'] = $this->country_model->getAll();
@@ -68,5 +98,124 @@ class Auth extends MY_Controller {
 		$this->data['userCountry'] = isset($userLoc->country) ? $this->country_model->getByCode($userLoc->country) : null;
 		$this->data['userCurrency'] = $this->data['userCountry'] ? $this->currency_model->getById($this->data['userCountry']->currency_id) : null;
 		$this->load->view('auth/register', $this->data);
+	}
+
+	public function forgot_password() {
+		$this->data['pageTitle'] = 'forgot';
+		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+			if($this->form_validation->run('forgot_password')) {
+				$email = $this->input->post("email");
+				$user = $this->user_model->getUserFullInfoByEmail($email);
+				if($user) {
+	           		$res = $this->user_model->setForgotPasswordCode($user);
+
+	           		if($res) {
+	           			$this->data['email'] = $user->email;
+	           			$this->load->view('auth/reset_password', $this->data);
+	           		} else {
+		           		$this->session->set_flashdata('flash_erros', '<p>An error occured, please try again.</p>');
+		           		$this->load->view('auth/forgot', $this->data);
+	           		}
+
+	           	} else {
+	           		$this->session->set_flashdata('flash_erros', '<p>You do not have an account, please create one.</p>');
+		           	redirect('register');
+	           	}
+			} else {
+				$this->load->view('auth/forgot', $this->data);
+			}
+		} else {
+			$this->load->view('auth/forgot', $this->data);
+		}
+	}
+
+	public function reset_password() {
+		$this->data['pageTitle'] = 'reset';
+		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+			$this->form_validation->set_rules("email", "Email", "required");
+			$this->form_validation->set_rules("code", "Code", "required");
+			$this->form_validation->set_rules("password", "Password", "required");
+			$this->form_validation->set_rules("repeat_password", "Repeat Password", "required");
+			$email = $this->input->post("email");
+			$code = $this->input->post("code");
+			$password = $this->input->post("password");
+			$repeat_password = $this->input->post("repeat_password");
+
+			$this->data['email'] = $email;
+
+			if($this->form_validation->run()) {
+				$user = $this->user_model->getUserFullInfoByEmail($email);
+				if($user && $user->forgot_password_code) {
+
+					if($user->forgot_password_code == $code) {
+						if($password == $repeat_password) {
+							if($this->user_model->reset_password($email, $password)) {
+				                $this->load->model('activity_model');
+				                $this->activity_model->add(array(
+				                    'type' => 'Authentication',
+				                    'description' => 'Password reset'
+				                ), $user->id);
+								$this->session->set_flashdata('flash_success', 'You password was reset, please use it to login.');
+			           			$this->load->view('auth/login', $this->data);
+							} else {
+								$this->session->set_flashdata('flash_erros', 'An error occured, please try again.');
+							}
+						} else {
+							$this->session->set_flashdata('flash_erros', 'Passwords do not match, please try again.');
+						}
+					} else {
+		           		$this->session->set_flashdata('flash_erros', 'Wrong pass code, please refer to your email.');
+	           		}
+
+	           	} else {
+	           		$this->session->set_flashdata('flash_erros', 'You do not have an account, please create one.');
+		           	redirect('register');
+	           	}
+			} else {
+	        	$this->session->set_flashdata('flash_erros', 'Please fill all fields correctly.');
+			}
+
+	        $this->load->view('auth/reset_password', $this->data);
+		} else {
+	        $this->session->set_flashdata('flash_erros', 'You do not have an account, please create one.');
+			$this->load->view('auth/reset_password', $this->data);
+		}
+	}
+
+	public function activation($np_id = '') {
+		$this->data['pageTitle'] = 'activation';
+ 		$this->data['np_id'] = $np_id;
+ 		$this->data['errors'] = array();
+		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+			$this->form_validation->set_rules("np_id", "NP ID", "required");
+			$this->form_validation->set_rules("activation_code", "Activation Code", "required");
+			$np_id = $this->input->post("np_id");
+			$code = $this->input->post("activation_code");
+			if($this->form_validation->run()) {
+	 			$user = $this->user_model->getUserFullInfoByNPNumber($np_id);
+	           	if($user && $user->activation_code) {
+	           		if($user->activation_code == $code) {
+	 					$res = $this->user_model->complete_registration($user->email, $code);
+	 					if(!$res) $this->load->view('auth/activation', $this->data);
+		           		$this->load->model('activity_model');
+		                $this->activity_model->add(array(
+		                    'type' => 'Authentication',
+		                    'description' => 'Registration'
+		                ), $user->id);
+		                $this->session->set_flashdata('flash_success', 'Account activated, you can now login.');
+		           		redirect('login');
+	           		} else {
+	           			$this->data['errors'][] = 'Wrong activation code';
+	           		}
+	           	} else {
+ 					$this->data['np_id'] = '';
+	           		$this->load->view('auth/activation', $this->data);
+	           	}
+			}
+		} else {
+			if($this->data['np_id'] == '') redirect('login');
+
+			$this->load->view('auth/activation', $this->data);
+		}
 	}
 }

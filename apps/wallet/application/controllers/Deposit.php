@@ -17,7 +17,7 @@ class Deposit extends MY_Controller {
 
 	public function index()
 	{
-        $default_amount = 100; //minimum deposit is set to 10
+        $default_amount = 10; //minimum deposit is set to 10
         $default_method = $this->depositmethod_model->getDefault();
         $charges = (($default_method->internal_fee + $default_method->external_fee) / 100) * $default_amount;
         $this->data['default_amount'] = $default_amount;

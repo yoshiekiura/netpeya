@@ -11,8 +11,8 @@ class Activity_model extends MY_Model {
 		$this->user_id = $this->session->userdata('user')['user_id'];
 	}
 
-	public function add($activity) {
-		$activity['user_id'] = $this->user_id;
+	public function add($activity, $user_id = '') {
+		$activity['user_id'] = $user_id != '' ? $user_id : $this->user_id;
 		$activity_data = $this->_filter_data($this->table, $activity);
 		$this->db->insert($this->table, $activity_data);
 		$activity_id = $this->db->insert_id($this->table . '_id_seq');
@@ -46,7 +46,7 @@ class Activity_model extends MY_Model {
 			if($datediff < 1) {
 				$date = 'Today';
 			} elseif($datediff <= 30) {
-				$date = $datediff < 2 ? 'Yesterday' : $datediff . ' days ago';
+				$date = $datediff < 2 ? 'Yesterday' : intval($datediff) . ' days ago';
 			}
 
 			$r->time = date("H:i:s", strtotime($r->ts_created));

@@ -19,11 +19,16 @@
 					<p class="pull-right">
 						<button class="btn transact_friend_btn"></button>
 						<a href="/friends/edit/<?= $friend->id ?>" class="btn edit_friend_btn" data-id="<?= $friend->id ?>"></a>
-						<button class="btn hot_friend_btn"></button>
+						<a class="btn hot_friend_btn"></a>
 					</p>
 				</div>
 			</div>
 		<?php endforeach; ?>
+	</div>
+<?php else: ?>
+	<div class="no-friends">
+		<p class="text-center">No friends found</p>
+		<a href="/friends/add" class="btn">Add a friend</a>
 	</div>
 <?php endif; ?>
 

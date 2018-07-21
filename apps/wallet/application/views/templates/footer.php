@@ -4,6 +4,16 @@
 	    </div>
 	</section>
 <?php endif; ?>
+<?php
+	if($this->session->flashdata('flash_erros')) {
+		$this->session->unmark_flash('flash_erros');
+		unset($_SESSION['flash_erros']);
+	}
+	if(isset($_SESSION['flash_success'])) {
+		$this->session->unmark_flash('flash_success');
+		unset($_SESSION['flash_success']);
+	}
+?>
 
 </div>
         </main>
@@ -16,7 +26,13 @@
         			<div class="col-md-11 no-right">
 		        		<div class="footer-top">
 		        			<span class="updated">Last updated: Mar 19, 2018 4:02 PM UTC</span>
-		        			<span class="lang dropdown-btn pull-right">English</span>
+		        			<p class="pull-right">
+			        			<a class="nav-link lang dropdown-btn">English</a>
+			        			<ul class="dropdown-content language-switch">
+								    <li data-value="en">English</li>
+								    <li data-value="es">Spanish</li>
+								</ul>
+							</p>
 		        		</div>
 		        		<div class="footer-bottom">
 		        			<ul>

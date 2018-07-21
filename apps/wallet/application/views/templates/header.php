@@ -12,10 +12,10 @@
         <header>
             <div class="container">
                 <div class="webkit-box">
-                    <div class="col-md-2 left">
+                    <div class="col-md-2 col-sm-4 left">
                         <a href="" class="logo"><img src="/assets/svg/logos/logo.svg" /></a>
                     </div>
-                    <div class="col-md-7 center border-right border-left">
+                    <div class="col-md-7 center border-right border-left d-md-block d-sm-none">
                         <div class="top-search-holder">
                             <div class="input-group-prepend input-group icon">
                                 <span class="input-group-text"><img class="icon" src="/assets/images/icons/search.png" /></span>
@@ -30,7 +30,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 right">
+                    <div class="col-md-3 col-sm-8 right">
                         <nav>
                             <ul>
                                 <li class="user-menu">
@@ -54,12 +54,11 @@
                                 </li> -->
                                 <li>
                                     <a class="nav-link lang dropdown-btn">
-                                        <p class="lang-select" style="background-image: url('/assets/svg/countries/gbp.svg')"></p>
+                                        <p class="lang-select" style="background-image: url('/assets/svg/languages/<?= $language ?>.svg')"></p>
                                     </a>
-                                    <ul class="dropdown-content">
-									    <li>English</li>
-									    <li>Spanish</li>
-									    <li>Xhosa</li>
+                                    <ul class="dropdown-content language-switch">
+									    <li data-value="en">English</li>
+									    <li data-value="es">Spanish</li>
 									</ul>
                                 </li>
                             </ul>
@@ -78,7 +77,7 @@
                         <a href="/dashboard" class="<?= $pageTitle == 'dashboard' ? 'active' : '' ?> nav-dashboard">Dashboard</a>
                     </li>
                     <li>
-                        <a href="/transactions" class="<?= $pageTitle == 'transactions' ? 'active' : '' ?> nav-history">History</a>
+                        <a href="/transactions" class="<?= $pageTitle == 'transactions' ? 'active' : '' ?> nav-history">Transactions</a>
                     </li>
                     <li>
                         <a href="/friends" class="<?= ($pageTitle == 'friends' || $pageTitle == 'friends add' || $pageTitle == 'friends edit') ? 'active' : '' ?> nav-friends">Friends</a>
@@ -134,7 +133,7 @@
                 </div>
             </nav>
         <?php endif;?>
-        <main>
+        <main class="<?= $pageTitle ?>">
             <div class="container">
                 <?php if($pageTitle != 'transactions'): ?>
                     <section class="app-top border-top">
@@ -145,13 +144,13 @@
                                         <div class="user-pic"><?= $user->first_name[0] . $user->last_name[0] ?></div>
                                         <div class="user-details">
                                             <span class="user-name"><?= $user->first_name . ' ' . $user->last_name ?></span>
-                                            <span class="user-account-id"><?= $user->country ?></span>
+                                            <span class="user-account-id"><strong>ID: </strong><?= $user->np_id ?></span>
                                         </div>
                                     </div>
                                     <div class="user-balance mt-3 border-top pt-3">
                                         <div class="user-currency" style="background-image: url('/assets/svg/countries/<?= strtolower($user->currency_code) ?>.svg');"></div>
                                         <div class="balance-details">
-                                            <span class="balance-title">Your Balance:</span>
+                                            <strong class="balance-title">Your Balance:</strong>
                                             <span class="balance-amount green-text"><?= $user->currency_simbol . number_format($user->account_balance, 2, '.', ' ') ?></span>
                                         </div>
                                     </div>

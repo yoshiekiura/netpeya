@@ -17,7 +17,9 @@ class User_model extends MY_Model {
 		return $this->errors;
 	}
 
-	public function getUserFullInfo() {
+	public function getUserFullInfo($user_id = '') {
+		if($user_id == '') $user_id = $this->user_id;
+
 		$this->db->select('user.*,
 				currency.name as currency,
 				currency.code as currency_code,
@@ -27,7 +29,39 @@ class User_model extends MY_Model {
 				->from($this->table)
 				->join('currency', 'currency.id = ' . $this->table . '.currency_id')
 				->join('country', 'country.id = ' . $this->table . '.country_id')
-				->where(array($this->table . '.id' => $this->user_id));
+				->where(array($this->table . '.id' => $user_id));
+		$query = $this->db->get();
+
+		return $query->row();
+	}
+
+	public function getUserFullInfoByNPNumber($np_id) {
+		$this->db->select('user.*,
+				currency.name as currency,
+				currency.code as currency_code,
+				currency.simbol as currency_simbol,
+				country.name as country,
+				country.code as country_code')
+				->from($this->table)
+				->join('currency', 'currency.id = ' . $this->table . '.currency_id')
+				->join('country', 'country.id = ' . $this->table . '.country_id')
+				->where(array($this->table . '.np_id' => $np_id));
+		$query = $this->db->get();
+
+		return $query->row();
+	}
+
+	public function getUserFullInfoByEmail($email) {
+		$this->db->select('user.*,
+				currency.name as currency,
+				currency.code as currency_code,
+				currency.simbol as currency_simbol,
+				country.name as country,
+				country.code as country_code')
+				->from($this->table)
+				->join('currency', 'currency.id = ' . $this->table . '.currency_id')
+				->join('country', 'country.id = ' . $this->table . '.country_id')
+				->where(array($this->table . '.email' => $email));
 		$query = $this->db->get();
 
 		return $query->row();
@@ -42,16 +76,33 @@ class User_model extends MY_Model {
         return false;
 	}
 
+	public function complete_registration($email, $code) {
+		$user = $this->getUserFullInfoByEmail($email);
+
+		if($user) {
+			if($user->activation_code) {
+				$sql = "UPDATE user SET activation_code = null WHERE id = ?";
+		        $query = $this->db->query($sql, (int)$user->id);
+		        if ($query > 0) {
+		            return true;
+		        }
+			}
+		}
+
+		return false;
+	}
+
 	public function add($user) {
 
 		if($this->identity_check($user['email'])) {
-			$this->set_error('Account already exists, please <a href="/login">Login</a>');
+			$this->set_error('<p>Account already exists, please <a href="/login">Login</a></p>');
 			return FALSE;
 		}
 
 		$user['password'] = $this->create_password($user['password']);
 
 		$user['balance'] = 0;
+		$user['activation_code'] = mt_rand(100000, 999999);
 
 		$card_proccessor_account_id = '';
 		$result = '';
@@ -80,16 +131,77 @@ class User_model extends MY_Model {
 		$user_id = $this->db->insert_id($this->table . '_id_seq');
 
 		if($user_id) {
-			return TRUE;
+
+			$np_id = 'NP' . str_pad($user_id, 8, '0', STR_PAD_LEFT);
+
+			$sql = "UPDATE user SET np_id = ? WHERE id = ?";
+	        $query = $this->db->query($sql, array($np_id, (int)$user_id));
+
+	        $user['np_id'] = $np_id;
+
+	        if ($query > 0) {
+	        	$data = $user;
+                $this->postmark->from('no-reply@netpeya.com', 'NetPeya');
+                $this->postmark->to($data['email'], $data['first_name'] . ' ' . $data['last_name']);
+                $this->postmark->subject('Account activation');
+                $this->postmark->message_html($this->load->view('templates/email/registration', $data, true));
+                $this->postmark->send();
+                
+	            return $user;
+	        }
 		}
 
 		return FALSE;
 	}
 
+	public function reset_password($email, $password) {
+		$new_password = $this->create_password($password);
+
+		$sql = "UPDATE user SET forgot_password_code = '', password = ? WHERE email = ?";
+        $query = $this->db->query($sql, array($new_password, $email));
+
+        if ($query > 0) {
+        	return true;
+        }
+
+        return false;
+	}
+
+	public function setForgotPasswordCode($user) {
+		$code = mt_rand(100000, 999999);
+		$sql = "UPDATE user SET forgot_password_code = ? WHERE email = ?";
+        $query = $this->db->query($sql, array($code, $user->email));
+
+        if ($query > 0) {
+        	$user->pass_code = $code;
+        	$data = array();
+        	$data['user'] = $user;
+        	$this->postmark->from('no-reply@netpeya.com', 'Xannia');
+            $this->postmark->to($user->email, $user->first_name . ' ' . $user->last_name);
+            $this->postmark->subject('Password reset');
+            $this->postmark->message_html($this->load->view('templates/email/password_reset', $data, true));
+            $this->postmark->send();
+        	return true;
+        }
+
+        return false;
+	}
+
+	public function clearForgotPasswordCode($email) {
+		$sql = "UPDATE user SET forgot_password_code = '' WHERE email = ?";
+        $query = $this->db->query($sql, array($email));
+
+        if ($query > 0) {
+        	return true;
+        }
+
+        return false;
+	}
+
 	public function login($email, $password) {
 		if (empty($email) || empty($password))
 		{
-			$this->set_error('login failed');
+			$this->set_error('<p>login failed</p>');
 			return FALSE;
 		}
 
@@ -106,10 +218,10 @@ class User_model extends MY_Model {
 			if($left <= 0) {
 				$this->clear_login_attempts($email);
 				$this->increase_login_attempts($email);
-				$this->set_error('Invalid login or password');
-				$this->set_error('You will be locked out after ' . ($this->config->item('maximum_login_attempts') - $this->get_attempts_num($email)) . ' attempts');
+				$this->set_error('<p>Invalid login or password</p>');
+				$this->set_error('<p>You will be locked out after <strong>' . ($this->config->item('maximum_login_attempts') - $this->get_attempts_num($email)) . '</strong> attempts</p>');
 			} else {
-				$this->set_error('You have been locked out, please try again after <br/> ' . $this->get_remaining_lockout($email) . ' minutes');
+				$this->set_error('<p>You have been locked out, please try again after <strong>' . $this->get_remaining_lockout($email) . '</strong> minutes</p>');
 			}
 
 			return FALSE;
@@ -124,7 +236,7 @@ class User_model extends MY_Model {
 			{
 				if ($user->is_active == 0)
 				{
-					$this->set_error('Account is not active');
+					$this->set_error('<p>Account is not active</p>');
 					return FALSE;
 				}
 
@@ -133,11 +245,6 @@ class User_model extends MY_Model {
 				$this->update_last_login($user->id);
 				$this->clear_login_attempts($email);
 
-				// if ($remember && $this->config->item('remember_users', 'xannia'))
-				// {
-				// 	$this->remember_user($user->id);
-				// }
-
 				return TRUE;
 			}
 		}
@@ -145,8 +252,8 @@ class User_model extends MY_Model {
 		// Hash something anyway, just to take up time
 		$this->create_password($password);
 
-		$this->set_error('Invalid login or password');
-		$this->set_error('You will be locked out after ' . ($this->config->item('maximum_login_attempts') - $this->get_attempts_num($email)) . ' attempts');
+		$this->set_error('<p>Invalid login or password</p>');
+		$this->set_error('<p>You will be locked out after <strong>' . ($this->config->item('maximum_login_attempts') - $this->get_attempts_num($email)) . '</strong> attempts</p>');
 		$this->increase_login_attempts($email);
 
 		return FALSE;
@@ -230,8 +337,13 @@ class User_model extends MY_Model {
 		unset($user['forgotten_password_code']);
 		unset($user['activation_code']);
 
+		$this->load->model('country_model');
+
+		$user_country = $this->country_model->getById($user['country_id']);
+
 		$session_data = array(
 			'user' => $user,
+			'lang' => $user_country->language,
 			'last_check' => date("Y-m-d H:i:s")
 		);
 

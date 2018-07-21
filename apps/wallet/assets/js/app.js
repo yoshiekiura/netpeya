@@ -26,6 +26,24 @@ $(document).ready(function() {
 	  	}
 	});
 
+	$(document).on('click', '.language-switch li', function() {
+		var lang = $(this).data('value');
+		$.ajax({
+                url: '/ajax/switch_language',
+                type: 'POST',
+                data: {
+                    'lang': lang
+                },
+                success: function (data, textStatus, xhr) {
+                    if (data.data.success) {
+                        location.reload();
+                    } else {
+                        //container.html('<div class="not-found text-center">Not Found</div>').addClass('loaded');
+                    }
+                }
+            });
+	});
+
 	//******** MODAL ****************//
 
 	$('.show-modal').on('click', function(e) {
@@ -78,106 +96,6 @@ $(document).ready(function() {
 	// 	var page = $(this).data('page');
 	// 	getPage(page);
 	// })
-
-
-	//================== AUTH ============================
-
-	$('#register_btn').on('click', function(e) {
-		e.preventDefault();
-
-		if(validateForm('#register_form')) {
-			var user = {};
-            var data = $('#register_form').serializeArray().reduce(function (obj, item) {
-                user[item.name] = item.value;
-                return user;
-            }, {});
-
-            var btn = $('#register_btn');
-            var btn_html = $('#register_btn').html();
-
-            LOADER.show(btn, 'creating your wallet');
-            $('.errors').empty().hide();
-
-            $.ajax({
-                url: '/ajax/register',
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    'user': JSON.stringify(data)
-                },
-                success: function (data, textStatus, xhr) {
-                    if (data.data.success && data['errors'].length == 0) {
-                        location.href = "/dashboard";
-                    	LOADER.restore(btn, btn_html);
-
-                    } else {
-                    	if(data['errors'] !== null) {
-                    		if(data['errors'].length > 0) {
-	                    		$.each(data['errors'], function(v, t) {
-	                    			$('#register_form .errors').show().append('<p>' + t + '</p>');
-	                    		});
-	                    	}
-                    	}
-                    	LOADER.restore(btn, btn_html);
-                    }
-
-                    LOADER.restore(btn, btn_html);
-                }
-            });
-		} else {
-			return false;
-		}
-        
-	});
-
-	$('#login_btn').on('click', function(e) {
-		e.preventDefault();
-
-		if(validateForm('#login_form')) {
-			var user = {};
-            var data = $('#login_form').serializeArray().reduce(function (obj, item) {
-                user[item.name] = item.value;
-                return user;
-            }, {});
-
-            var btn = $('#login_btn');
-            var btn_html = $('#login_btn').html();
-
-            LOADER.show(btn, 'logging into wallet');
-            $('.errors').empty().hide();
-
-            $.ajax({
-                url: '/ajax/login',
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    'user': JSON.stringify(data)
-                },
-                success: function (data, textStatus, xhr) {
-                    if (data.data.success && data['errors'].length == 0) {
-                        location.href = "/dashboard";
-                    	LOADER.restore(btn, btn_html);
-
-                    } else {
-
-                    	if(data['errors'] !== null) {
-                    		if(data['errors'].length > 0) {
-	                    		$.each(data['errors'], function(v, t) {
-	                    			$('#login_form .errors').show().append('<p>' + t + '</p>');
-	                    		});
-	                    	}
-                    	}
-                    	LOADER.restore(btn, btn_html);
-                    }
-
-                    LOADER.restore(btn, btn_html);
-                }
-            });
-		} else {
-			return false;
-		}
-        
-	});
 	
 });
 

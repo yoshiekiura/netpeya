@@ -21,15 +21,17 @@
                     <div class="col-md-4 right">
                         <nav>
                             <ul>
-                                <li>
+                                <li class="pr-3">
+                                    <a href="">Go to <strong>merchant portal</strong></a>
+                                </li>
+                                <li class="pl-3">
                                     <a class="nav-link lang dropdown-btn">
-                                        <p class="lang-select" style="background-image: url('/assets/svg/countries/gbp.svg')"></p>
+                                        <p class="lang-select" style="background-image: url('/assets/svg/languages/<?= $language ?>.svg')"></p>
                                     </a>
-                                    <ul class="dropdown-content">
-									    <li>English</li>
-									    <li>Spanish</li>
-									    <li>Xhosa</li>
-									</ul>
+                                    <ul class="dropdown-content language-switch">
+                                        <li data-value="en">English</li>
+                                        <li data-value="es">Spanish</li>
+                                    </ul>
                                 </li>
                             </ul>
                         </nav>

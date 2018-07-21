@@ -52,8 +52,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 //****** AUTH ***********
 $route['login'] = 'auth/login';
+$route['forgot-password'] = 'auth/forgot_password';
+$route['reset-password'] = 'auth/reset_password';
 $route['logout'] = 'auth/logout';
 $route['register'] = 'auth/register';
+$route['activation'] = 'auth/activation';
+$route['activation/(:any)'] = 'auth/activation/$1';
 
 // ****** AJAX **************
 
@@ -61,6 +65,7 @@ $route['ajax/register'] = 'ajax/register';
 $route['ajax/login'] = 'ajax/login';
 $route['ajax/proccess_deposit'] = 'ajax/proccess_deposit';
 $route['ajax/add_friend'] = 'ajax/add_friend';
+$route['ajax/switch_language'] = 'ajax/switch_language';
 
 
 //****** APP ************

@@ -56,7 +56,7 @@ $(function() {
                             container.find('.add-friend-result img').addClass('animated zoomInDown');
                             container.find('.cont').addClass('animated slideInUp');
                             setTimeout(function() {
-                                container.find('.add-friend-result').css('background-color', '#fff');
+                                container.find('.add-friend-result').css('background-color', 'transparent');
                             }, 1000)
                         } else {
                             container.html('<div class="not-found text-center">Not Found</div>').addClass('loaded');

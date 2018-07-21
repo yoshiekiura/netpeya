@@ -18,9 +18,9 @@ class Ajax extends MY_Controller {
 
         if ($this->form_validation->run()) {
             $this->load->model('user_model');
-            $reg_res = $this->user_model->add($user);
-            if($reg_res) {
-            	$this->user_model->login($user['email'], $user['password']);
+            $reg_user = $this->user_model->add($user);
+            if($reg_user) {
+                $result['np_id'] = $reg_user['np_id'];
                 $result['success'] = true;
             } else {
 	            $result['success'] = false;
@@ -49,7 +49,7 @@ class Ajax extends MY_Controller {
             if($login_res) {
                 $this->load->model('activity_model');
                 $this->activity_model->add(array(
-                    'type' => 'login',
+                    'type' => 'Authentication',
                     'description' => 'Account login'
                 ));
                 $result['success'] = true;
@@ -137,11 +137,28 @@ class Ajax extends MY_Controller {
                     'type' => 'friend',
                     'description' => 'Added friend -  '. $added_friend->email
                 ));
-                return $this->load->view('friend/add_success', $data);
+                return $this->load->view('friends/add_success', $data);
             }
         }
 
-        return $this->load->view('friend/add_failed');
+        return $this->load->view('friends/add_failed');
+    }
+
+    public function switch_language() {
+        $result = array();
+        $errors = array();
+
+        $this->form_validation->set_rules("lang", "Language", "required");
+        $lang = $this->input->post("lang");
+
+        if ($this->form_validation->run()) {
+            $this->session->set_userdata('lang', $lang);
+            $result['success'] = true;
+        } else {
+            $result['success'] = false;
+        }
+
+        return $this->formatData($result, $errors);
     }
 
 	private function formatData($data, $errors)
