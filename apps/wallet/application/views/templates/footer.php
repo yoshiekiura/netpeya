@@ -22,10 +22,28 @@
         		<nav class="mobile-footer-nav">
         			<ul>
         				<li>
-                        	<a href="/deposit" class="deposit"><img class="icon" src="/assets/images/icons/deposit.png" /></a>
+                        	<a href="/deposit" class="deposit">
+                        		<img class="icon" src="/assets/images/icons/arrow-up.png" />
+                        		<span>deposit</span>
+                        	</a>
 	                    </li>
 	                    <li>
-	                        <a href="" class="withdraw"><img class="icon" src="/assets/images/icons/withdraw.png" /></a>
+	                        <a href="" class="withdraw">
+	                        	<img class="icon" src="/assets/images/icons/arrow-down.png" />
+                        		<span>withdraw</span>
+	                        </a>
+	                    </li>
+        				<li>
+                        	<a href="/deposit" class="deposit">
+                        		<img class="icon" src="/assets/images/icons/arrow-left.png" />
+                        		<span>send</span>
+                        	</a>
+	                    </li>
+	                    <li>
+	                        <a href="" class="withdraw">
+	                        	<img class="icon" src="/assets/images/icons/arrow-right.png" />
+                        		<span>request</span>
+	                        </a>
 	                    </li>
         			</ul>
         		</nav>
