@@ -18,7 +18,19 @@
 </div>
         </main>
         <footer>
-        	<div class="container">
+        	<div class="mobile">
+        		<nav class="mobile-footer-nav">
+        			<ul>
+        				<li>
+                        	<a href="/deposit" class="deposit"><img class="icon" src="/assets/images/icons/deposit.png" /></a>
+	                    </li>
+	                    <li>
+	                        <a href="" class="withdraw"><img class="icon" src="/assets/images/icons/withdraw.png" /></a>
+	                    </li>
+        			</ul>
+        		</nav>
+        	</div>
+        	<div class="container hidden-mobile">
         		<div class="webkit-box">
         			<div class="col-md-1 no-left">
         				<a href="" class="logo"><img src="/assets/svg/logos/logo-short.svg" /></a>
