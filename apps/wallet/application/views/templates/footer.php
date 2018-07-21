@@ -18,31 +18,31 @@
 </div>
         </main>
         <footer>
-        	<div class="mobile">
+        	<div class="mobile mobile-footer">
         		<nav class="mobile-footer-nav">
         			<ul>
-        				<li>
-                        	<a href="/deposit" class="deposit">
+        				<li class="deposit">
+                        	<a href="/deposit">
                         		<img class="icon" src="/assets/svg/icons/deposit-mobile.svg" />
                         		<span>deposit</span>
                         	</a>
 	                    </li>
-	                    <li>
-	                        <a href="" class="withdraw">
-	                        	<img class="icon" src="/assets/svg/icons/withdraw-mobile.svg" />
-                        		<span>withdraw</span>
-	                        </a>
-	                    </li>
-        				<li>
-                        	<a href="/deposit" class="deposit">
+        				<li class="send">
+                        	<a href="/send">
                         		<img class="icon" src="/assets/svg/icons/send-mobile.svg" />
                         		<span>send</span>
                         	</a>
 	                    </li>
-	                    <li>
-	                        <a href="" class="withdraw">
+	                    <li class="request">
+	                        <a href="">
 	                        	<img class="icon" src="/assets/svg/icons/request-mobile.svg" />
                         		<span>request</span>
+	                        </a>
+	                    </li>
+	                    <li class="withdraw">
+	                        <a href="">
+	                        	<img class="icon" src="/assets/svg/icons/withdraw-mobile.svg" />
+                        		<span>withdraw</span>
 	                        </a>
 	                    </li>
         			</ul>
