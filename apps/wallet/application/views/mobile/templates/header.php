@@ -35,6 +35,12 @@
                                 <li>
                                     <a href="">Friends</a>
                                 </li>
+                                <li>
+                                    <a href="/deposit">Deposit</a>
+                                </li>
+                                <li>
+                                    <a href="">Withdraw</a>
+                                </li>
                             </ul>
                         </nav>
                         <a href="/auth/logout" class="logout">Log out  <img class="pl-3" src="/assets/svg/icons/logout.svg" /></a>

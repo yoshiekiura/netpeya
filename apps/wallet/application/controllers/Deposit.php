@@ -23,7 +23,7 @@ class Deposit extends MY_Controller {
         $this->data['default_amount'] = $default_amount;
         $this->data['default_method'] = $default_method;
         $this->data['default_payment_with_charges'] = number_format($default_amount + $charges, 2, '.', ' ');
-		$this->load->view('deposit/index', $this->data);
+		$this->renderView('deposit/index', $this->data);
 	}
 
     public function forms($form) {
@@ -34,7 +34,7 @@ class Deposit extends MY_Controller {
         $this->data['method'] = $method;
         $this->data['total_fee'] = $total_fees;
         $this->data['total_charge'] = number_format($total_fee_amount + (double)$this->data['amount'], 2, '.', ' ');
-        $this->load->view('templates/deposit_forms/' . $form, $this->data);
+        $this->renderView('templates/deposit_forms/' . $form, $this->data);
     }
 
 	public function pay()
