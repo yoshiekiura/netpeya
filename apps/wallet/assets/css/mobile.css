@@ -66,13 +66,9 @@ a:hover, a:focus {
 }
 
 .auth form {
-	width: 70%;
+	width: 80%;
 	margin: 0 auto;
 	text-align: center;
-}
-
-.auth .register form {
-	width: 80%;
 }
 
 .auth .login, .auth .register {
