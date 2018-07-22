@@ -15,5 +15,6 @@
         <header>
             <div class="text-center logo-holder">
                 <img src="/assets/svg/logos/logo-short.svg" />
+                <h2 class="header-title"><span class="green-text">Net</span>Peya</h2>
             </div>
         </header>

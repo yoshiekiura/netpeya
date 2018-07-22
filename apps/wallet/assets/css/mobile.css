@@ -1,6 +1,6 @@
 body {
 	background-color: #fff!important;
-	height: 100vh;
+	min-height: 100vh;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 500;
 	font-size: 15px;
@@ -12,21 +12,37 @@ body {
 	text-rendering: optimizelegibility;
 }
 
+body.auth {
+	padding-bottom: 80px;
+}
+
+a {
+	color: #4eb929;
+}
+
+a:hover, a:focus {
+	outline: none;
+	text-decoration: none;
+}
+
 .green-text {
 	color: #4eb929!important;
 }
 
-.auth header {
-	padding: 18% 0;
+.auth {
 	background-image: url('../svg/logos/logo-short-grey.svg');
 	background-size: 50%;
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: top;
+}
+
+.auth header {
+	padding: 10% 0 0;
 }
 
 .auth header .logo-holder img {
     height: 60px;
-    width: 80px
+    margin-bottom: 20px;
 }
 
 .auth .header-title {
@@ -47,4 +63,99 @@ body {
 
 .auth .bottom-bar span {
 	display: block;
+}
+
+.auth form {
+	width: 60%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.auth .register form {
+	width: 75%;
+}
+
+.auth .login, .auth .register {
+	margin-top: 12%;
+}
+
+.auth .login .header-title,
+.auth .register .header-title {
+	font-weight: 500;
+	margin-bottom: 20px;
+}
+
+input, select {
+	border: none!important;
+	border-radius: 0!important;
+	border-bottom: 1px solid #ced4da!important;
+}
+
+input:focus, select:focus {
+	outline: none!important;
+	box-shadow: none!important;
+	border-bottom: 1px solid #4eb929!important;
+}
+
+.auth form input {
+	margin-bottom: 15px!important;
+}
+
+.btn {
+	box-shadow: none;
+	padding: 8px 15px;
+}
+
+.btn:focus, .btn:hover {
+	outline: none;
+	box-shadow: none;
+}
+
+.btn.btn-submit {
+	width: 100%;
+	border-radius: 25px;
+}
+
+.btn-green {
+	background-color: #4eb929!important;
+	color: #fff;
+}
+
+.flash-errors, .flash-success {
+  display: none;
+  color: rgb(218, 73, 49);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  text-align: left;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  background: rgb(255, 240, 238);
+  border-left: 4px solid rgb(218, 73, 49);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.flash-errors.shown, .flash-success.shown {
+  display: block;
+}
+
+.flash-success {
+  background-color: rgba(78, 185, 41, 0.1);
+  color: #4eb929;
+  border-left: 4px solid #4eb929;
+
+}
+
+.flash-errors p, .flash-success p {
+  margin: 0;
+  padding: 2px 16px;
+}
+
+.flash-errors p:first-child, .flash-success p:first-child {
+  padding-top: 10px;
+}
+
+.flash-errors p:last-child, .flash-success p:last-child {
+  padding-bottom: 10px;
 }

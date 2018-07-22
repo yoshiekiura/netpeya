@@ -31,9 +31,9 @@ class MY_Controller extends CI_Controller
 
 	public function renderView($str, $data) {
 		if(Device::is_mobile()){
-			return $this->load->view('mobile/' . $str, $data);
+			$this->load->view('mobile/' . $str, $data);
 		} else {
-			return $this->load->view($str, $data);
+			$this->load->view($str, $data);
 		}
 	}
 }

@@ -75,7 +75,7 @@ class Auth extends MY_Controller {
 	                redirect('activation/' . $reg_user['np_id']);
 	            } else {
 		            $this->session->set_flashdata('flash_erros', implode('', $this->user_model->get_errors()));
-		    		$this->load->view('auth/register', $this->data);
+		    		$this->renderView('auth/register', $this->data);
 	            }
 
 			} else {
@@ -97,7 +97,7 @@ class Auth extends MY_Controller {
 
 		$this->data['userCountry'] = isset($userLoc->country) ? $this->country_model->getByCode($userLoc->country) : null;
 		$this->data['userCurrency'] = $this->data['userCountry'] ? $this->currency_model->getById($this->data['userCountry']->currency_id) : null;
-		$this->load->view('auth/register', $this->data);
+		$this->renderView('auth/register', $this->data);
 	}
 
 	public function forgot_password() {
