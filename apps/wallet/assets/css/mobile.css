@@ -384,3 +384,7 @@ input:focus, select:focus {
 	width: 60%;
 	text-align: right;
 }
+
+.box-shadow {
+	box-shadow: 0 0.285rem 1.1428rem rgba(33, 102, 212, 0.15);
+}
