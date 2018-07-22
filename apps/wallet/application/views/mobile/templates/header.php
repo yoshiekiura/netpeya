@@ -17,23 +17,23 @@
                 <span class="page-title"><?= ucfirst($pageTitle) ?></span>
             </div>
             <div class="right">
-                <span id="sidebar_close" class="pull-left"><img src="/assets/images/icons/arrow-left.png" /></span>
+                <span id="sidebar_close" class="pull-left"><img src="/assets/images/icons/arrow-left.png" />close</span>
                 <span id="sidebar_opener" class="pull-right"><img class="user-pic" src="/assets/svg/icons/user-green.svg" /><img class="icon" src="/assets/svg/icons/sort.svg" /></span>
                 <div class="sidebar">
                     <aside class="main-sidebar">
                         <nav>
                             <ul>
                                 <li>
-                                    <a href=""><img src="/assets/svg/icons/home.svg" />Dashboard</a>
+                                    <a href="">Dashboard</a>
                                 </li>
                                 <li>
-                                    <a href=""><img src="/assets/svg/icons/history.svg" /> Transactions</a>
+                                    <a href="">Transactions</a>
                                 </li>
                                 <li>
-                                    <a href=""><img src="/assets/svg/icons/send.svg" /> Send/Request</a>
+                                    <a href="">Send/Request</a>
                                 </li>
                                 <li>
-                                    <a href=""><img src="/assets/svg/icons/friends.svg" /> Friends</a>
+                                    <a href="">Friends</a>
                                 </li>
                             </ul>
                         </nav>

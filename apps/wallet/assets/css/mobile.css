@@ -36,17 +36,16 @@ body.auth {
 
 .app header .left,
 .app header .right {
+	width: 50%;
 	line-height: 65px;
 	float: left;
 }
 
 .app header .left {
-	width: 40%;
 	padding-left: 15px;
 }
 
 .app header .right {
-	width: 60%;
 	padding: 0 15px;
 }
 
@@ -57,6 +56,13 @@ body.auth {
 
 .app header .right #sidebar_close {
 	display: none;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #888;
+}
+
+.app header .right #sidebar_close img {
+	margin-right: 10px;
 }
 
 .app header .page-title {
@@ -430,15 +436,16 @@ input:focus, select:focus {
 .main-sidebar {
 	position: fixed;
 	right: 0;
-	width: 60%;
+	width: 100%;
 	height: calc(100vh - 65px);
-	background-color: #fff;
+	background-color: rgba(255, 255, 255, .9);
 	padding: 15px;
 }
 
 .main-sidebar nav ul {
 	list-style: none;
-	padding-left: 15px;
+	padding-left: 0;
+	text-align: center;
 }
 
 .main-sidebar nav ul li {
@@ -448,9 +455,10 @@ input:focus, select:focus {
 
 .main-sidebar nav ul li a {
 	color: #394047;
-	font-weight: 700;
-	width: 100%;
-	line-height: 55px;
+    font-weight: 700;
+    width: 100%;
+    line-height: 65px;
+    font-size: 22px;
 }
 
 .main-sidebar nav ul li a img {

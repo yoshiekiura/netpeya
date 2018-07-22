@@ -25,7 +25,6 @@ class Netpeya_auth
 		} else {
 			$this->_ci->session->unset_userdata(array('user'));
 		}
-
 		// Destroy the session
 		$this->_ci->session->sess_destroy();
 

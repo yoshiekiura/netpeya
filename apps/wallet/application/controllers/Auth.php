@@ -43,7 +43,7 @@ class Auth extends MY_Controller {
 
 	public function logout() {
 		if($this->netpeya_auth->logout()) {
-			redirect('login');
+			redirect('login', 'refresh');
 		}
 	}
 

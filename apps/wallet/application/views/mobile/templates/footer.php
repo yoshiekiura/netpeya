@@ -26,13 +26,15 @@
 	    }, 500);
 
 	    $(document).on('click', '#sidebar_opener', function() {
-	    	$('.app header .right').css('background-color', '#fff');
+	    	$('.app header .right').css('background-color', '#fff').css('width', '100%');
 	    	$('.sidebar, .app header .right #sidebar_close').show();
+	    	$('.app header .left').hide();
 	    });
 
 	    $(document).on('click', '#sidebar_close', function() {
-	    	$('.app header .right').css('background-color', 'transparent');
+	    	$('.app header .right').css('background-color', 'transparent').css('width', '50%');
 	    	$('.sidebar, .app header .right #sidebar_close').hide();
+	    	$('.app header .left').show();
 	    });
 	})
 </script>
