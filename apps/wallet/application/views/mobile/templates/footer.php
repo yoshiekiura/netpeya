@@ -18,4 +18,11 @@
 <script type="text/javascript" src="/assets/js/app.js"></script>
 <script type="text/javascript" src="/assets/js/deposit.js"></script>
 <script type="text/javascript" src="/assets/js/friends.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$([document.documentElement, document.body]).animate({
+	        scrollTop: $("header").offset().top
+	    }, 500);
+	})
+</script>
 </html>
