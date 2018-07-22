@@ -18,7 +18,7 @@
                     <span class="page-title"><?= ucfirst($pageTitle) ?></span>
                 </div>
                 <div class="right text-right">
-                    <p><img class="user-pic" src="/assets/svg/icons/user-green.svg" /><img class="icon" src="/assets/svg/icons/sort.svg" /></p>
+                    <span><img class="user-pic" src="/assets/svg/icons/user-green.svg" /><img class="icon" src="/assets/svg/icons/sort.svg" /></span>
                 </div>
             </div>
         </header>

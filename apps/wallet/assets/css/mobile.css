@@ -26,6 +26,7 @@ body.auth {
 
 .app header {
 	overflow: hidden;
+	height: 65px;
 }
 
 .app header .left,
@@ -373,4 +374,13 @@ input:focus, select:focus {
     content: '';
     left: 0;
     top: 50%;
+}
+
+.dashboard .activity-holder .activity-list ul li .left {
+	width: 30%;
+	margin-left: 20px;
+}
+.dashboard .activity-holder .activity-list ul li .right {
+	width: 60%;
+	text-align: right;
 }

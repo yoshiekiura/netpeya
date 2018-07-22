@@ -6,7 +6,7 @@
 
 <div class="container">
 	<section>
-		<div class="card user-summary">
+		<div class="card user-summary box-shadow">
             <div class="user-profile">
                 <div class="user-pic"><?= $user->first_name[0] . $user->last_name[0] ?></div>
                 <div class="user-details">
@@ -36,8 +36,8 @@
 									<?php foreach ($day_activity as $activity): ?>
 										<li>
 											<div class="row">
-												<div class="col-md-2 no-right"><span class="time fade-text"><?= $activity->time ?></span></div>
-												<div class="col-md-10 no-left no-right"><span><?= $activity->description ?></span></div>
+												<div class="left"><span class="time fade-text"><?= $activity->time ?></span></div>
+												<div class="right"><span><?= $activity->description ?></span></div>
 											</div>
 										</li>
 									<?php endforeach; ?>
