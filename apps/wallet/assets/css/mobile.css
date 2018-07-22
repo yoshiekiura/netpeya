@@ -50,6 +50,7 @@ body.auth {
 }
 
 .app header .right img {
+	height: 30px;
 	position: relative;
 	top: -2px;
 }
@@ -63,6 +64,7 @@ body.auth {
 
 .app header .right #sidebar_close img {
 	margin-right: 10px;
+	height: 22px;
 }
 
 .app header .page-title {
@@ -430,7 +432,7 @@ input:focus, select:focus {
 	width: 100%;
 	top: 65px;
 	left: 0;
-	height: 100vh;
+	height: calc(100vh - 65px);
 }
 
 .main-sidebar {

@@ -17,7 +17,7 @@
                 <span class="page-title"><?= ucfirst($pageTitle) ?></span>
             </div>
             <div class="right">
-                <span id="sidebar_close" class="pull-left"><img src="/assets/images/icons/arrow-left.png" />close</span>
+                <span id="sidebar_close" class="pull-left"><img src="/assets/svg/icons/close.svg" /></span>
                 <span id="sidebar_opener" class="pull-right"><img class="user-pic" src="/assets/svg/icons/user-green.svg" /><img class="icon" src="/assets/svg/icons/sort.svg" /></span>
                 <div class="sidebar">
                     <aside class="main-sidebar">
@@ -37,7 +37,7 @@
                                 </li>
                             </ul>
                         </nav>
-                        <a href="/auth/logout" class="logout">Log out  <img class="pl-3" src="/assets/images/icons/arrow-right-white.png" /></a>
+                        <a href="/auth/logout" class="logout">Log out  <img class="pl-3" src="/assets/svg/icons/logout.svg" /></a>
                     </aside>
                 </div>
             </div>
