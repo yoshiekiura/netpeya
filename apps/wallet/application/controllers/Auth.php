@@ -34,14 +34,14 @@ class Auth extends MY_Controller {
 	                redirect('dashboard');
 	            } else {
 	            	$this->session->set_flashdata('flash_erros', implode('', $this->user_model->get_errors()));
-		    		$this->load->view('auth/login', $this->data);
+		    		$this->renderView('auth/login', $this->data);
 	            }
 	        } else {
-		    	$this->load->view('auth/login', $this->data);
+	        	$this->renderView('auth/login', $this->data);
 	        }
 	    }
 
-	    $this->load->view('auth/login', $this->data);
+	    $this->renderView('auth/login', $this->data);
 	}
 
 	public function logout() {

@@ -133,4 +133,4 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 $autoload['model'] = array();
-$autoload['libraries'] = array('netpeya_auth', 'form_validation', 'session', 'CurrencyConverter', 'Tools', 'postmark', 'braintree_lib', 'DepositProcessor');
+$autoload['libraries'] = array('netpeya_auth', 'form_validation', 'session', 'CurrencyConverter', 'Tools', 'Device', 'postmark', 'braintree_lib', 'DepositProcessor');

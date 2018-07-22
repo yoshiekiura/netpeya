@@ -10,7 +10,6 @@
         <link rel="stylesheet" type="text/css" href="/assets/vendors/font-awesome/css/fontawesome-all.min.css" />
         <link rel="stylesheet" type="text/css" href="/assets/vendors/animate/animate.css" />
         <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
-        <link rel="stylesheet" type="text/css" href="/assets/css/mobile.css" />
     </head>
     <body class="<?= $pageTitle ?>" ng-app="">
         <header>

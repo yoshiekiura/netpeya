@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Tools {
+
 	public static function calculatePercent($in, $of) {
 		$value = 0;
 

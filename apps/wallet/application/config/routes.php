@@ -66,6 +66,7 @@ $route['ajax/login'] = 'ajax/login';
 $route['ajax/proccess_deposit'] = 'ajax/proccess_deposit';
 $route['ajax/add_friend'] = 'ajax/add_friend';
 $route['ajax/switch_language'] = 'ajax/switch_language';
+$route['ajax/switch_device'] = 'ajax/switch_device';
 
 
 //****** APP ************

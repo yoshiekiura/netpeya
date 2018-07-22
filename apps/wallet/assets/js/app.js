@@ -1,3 +1,26 @@
+checkDevice();
+
+$( window ).resize(function() {
+  checkDevice();
+});
+
+function checkDevice() {
+	var w = $(window).outerWidth(true);
+	$.ajax({
+	    url: '/ajax/switch_device',
+	    type: 'POST',
+	    data: {
+	        'w': w
+	    },
+	    success: function (data, textStatus, xhr) {
+	    	if(data.data.device != $.cookie("np_device")) {
+	    		$.cookie("np_device", data.data.device);
+	    		location.reload();
+	    	}
+	    }
+	});
+}
+
 $(document).ready(function() {
 
 	setTimeout(function () {
@@ -29,19 +52,19 @@ $(document).ready(function() {
 	$(document).on('click', '.language-switch li', function() {
 		var lang = $(this).data('value');
 		$.ajax({
-                url: '/ajax/switch_language',
-                type: 'POST',
-                data: {
-                    'lang': lang
-                },
-                success: function (data, textStatus, xhr) {
-                    if (data.data.success) {
-                        location.reload();
-                    } else {
-                        //container.html('<div class="not-found text-center">Not Found</div>').addClass('loaded');
-                    }
+            url: '/ajax/switch_language',
+            type: 'POST',
+            data: {
+                'lang': lang
+            },
+            success: function (data, textStatus, xhr) {
+                if (data.data.success) {
+                    location.reload();
+                } else {
+                    //container.html('<div class="not-found text-center">Not Found</div>').addClass('loaded');
                 }
-            });
+            }
+        });
 	});
 
 	//******** MODAL ****************//

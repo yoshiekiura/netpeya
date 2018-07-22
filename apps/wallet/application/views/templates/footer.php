@@ -18,7 +18,7 @@
 </div>
         </main>
         <footer>
-        	<div class="mobile mobile-footer">
+        	<!-- <div class="mobile mobile-footer">
         		<nav class="mobile-footer-nav">
         			<ul>
         				<li class="deposit">
@@ -47,7 +47,7 @@
 	                    </li>
         			</ul>
         		</nav>
-        	</div>
+        	</div> -->
         	<div class="container hidden-mobile">
         		<div class="webkit-box">
         			<div class="col-md-1 no-left">
@@ -98,6 +98,7 @@
 	    </div>
     </body>
 <script type="text/javascript" src="/assets/vendors/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/vendors/jquery/jquery.cookie.js"></script>
 <script type="text/javascript" src="/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="/assets/vendors/card-validator/card_validator.js"></script>
 <script type="text/javascript" src="/assets/vendors/validate/jquery.validate.min.js"></script>

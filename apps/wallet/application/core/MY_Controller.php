@@ -28,4 +28,12 @@ class MY_Controller extends CI_Controller
 
 		$this->lang->load('netpeya_lang', $language);
 	}
+
+	public function renderView($str, $data) {
+		if(Device::is_mobile()){
+			return $this->load->view('mobile/' . $str, $data);
+		} else {
+			return $this->load->view($str, $data);
+		}
+	}
 }

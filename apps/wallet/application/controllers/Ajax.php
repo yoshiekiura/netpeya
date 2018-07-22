@@ -7,6 +7,33 @@ class Ajax extends MY_Controller {
 		parent::__construct();
 	}
 
+    public function switch_device() {
+        $result = array();
+        $errors = array();
+
+        $this->form_validation->set_rules("w", "Width", "required");
+        $device_width = $this->input->post("w");
+
+        if ($this->form_validation->run()) {
+
+            if($device_width <= 1000) {
+                $this->session->set_userdata('is_mobile', true);
+                $this->session->set_userdata('is_desktop', false);
+            } else {
+                $this->session->set_userdata('is_desktop', true);
+                $this->session->set_userdata('is_mobile', false);
+            }
+
+            $result['success'] = true;
+        } else {
+            $result['success'] = false;
+        }
+        
+        $result['device'] = Device::get_name();
+
+        return $this->formatData($result, $errors);
+    }
+
 	public function register() {
 		$result = array();
         $errors = array();
