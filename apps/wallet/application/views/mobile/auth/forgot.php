@@ -14,10 +14,10 @@
         <p><?= $this->session->flashdata('flash_success') ? $this->session->flashdata('flash_success') : '' ?></p>
     </div>
 	<form id="forgot_form" action="/forgot-password" method="post" autocomplete="off">
-        <p>Enter your registred email and we will send you instructions.</p>
-        <div class="form-group">
+        <p class="mb-3">Enter your registred email and we will send you instructions.</p>
+        <div class="form-group mt-3">
             <div class="input-group">
-                <input type="email" name="email" class="form-control validate input-translate" />
+                <input type="email" name="email" placeholder="email" class="form-control validate input-translate" />
                 <button id="forgot_btn" class="btn btn-submit btn-green">Next step</button>
             </div>
         </div>

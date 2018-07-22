@@ -3,7 +3,7 @@ body {
 	min-height: 100vh;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 500;
-	font-size: 15px;
+	font-size: 1em;
 	color: #394047;
 	overflow-x: hidden;
 	-webkit-font-smoothing: antialiased;
@@ -71,6 +71,19 @@ a:hover, a:focus {
 	text-align: center;
 }
 
+@media (min-width: 768px) {
+	body {
+		font-size: 1.3em!important;
+	}
+	.auth form {
+		width: 50%;
+	}
+
+	.btn {
+		padding: 12px 20px!important;
+	}
+}
+
 .auth .login, .auth .register {
 	margin-top: 12%;
 }
@@ -85,6 +98,7 @@ input, select {
 	border: none!important;
 	border-radius: 0!important;
 	border-bottom: 1px solid #ced4da!important;
+	font-size: 1em!important;
 }
 
 input:focus, select:focus {
