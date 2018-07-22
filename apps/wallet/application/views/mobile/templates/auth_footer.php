@@ -8,11 +8,6 @@
 		unset($_SESSION['flash_success']);
 	}
 ?>
-<footer>
-	<div class="container">
-		<!-- Bottom bar goes here -->
-	</div>
-</footer>
 </main>
 </body>
 <script type="text/javascript" src="/assets/vendors/jquery/jquery.min.js"></script>

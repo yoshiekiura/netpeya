@@ -37,4 +37,4 @@
 
 <a class="bottom-bar" href="/register">Don't have an account?<span class="green-text">Sign up</span></a>
 
-<?php $CI->load->view('mobile/templates/footer'); ?>
+<?php $CI->load->view('mobile/templates/auth_footer'); ?>

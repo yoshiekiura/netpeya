@@ -4,11 +4,11 @@
     $CI->load->view('mobile/templates/header');
 ?>
 <div class="container">
-    <div class="card app_content">
+    <div class="card app_content box-shadow">
         <div class="deposit-form p-3">
             <form class="form" method="post" action="/deposit/pay">
                 <div class="form-group">
-                    <input type="text" id="deposit_amount" value="<?= $default_amount ?>" name="deposit_amount" class="form-control">
+                    <input type="number" id="deposit_amount" value="<?= $default_amount ?>" name="deposit_amount" class="form-control">
                     <input type="hidden" id="method" name="method" value="creditcard">
                     <span class="amount-label">Amount</span>
                 </div>

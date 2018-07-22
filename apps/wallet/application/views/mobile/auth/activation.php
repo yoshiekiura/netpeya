@@ -28,4 +28,4 @@
 
 <a class="bottom-bar" href="/login">Already have an account?<span class="green-text">Log in</span></a>
 
-<?php $CI->load->view('mobile/templates/footer'); ?>
+<?php $CI->load->view('mobile/templates/auth_footer'); ?>

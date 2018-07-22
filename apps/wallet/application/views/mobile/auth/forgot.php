@@ -27,4 +27,4 @@
 
 <a class="bottom-bar" href="/login">Wait!, I remember!<span class="green-text">Log in</span></a>
 
-<?php $CI->load->view('mobile/templates/footer'); ?>
+<?php $CI->load->view('mobile/templates/auth_footer'); ?>

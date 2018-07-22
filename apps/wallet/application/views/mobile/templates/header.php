@@ -24,16 +24,16 @@
                         <nav>
                             <ul>
                                 <li>
-                                    <a href="">Dashboard</a>
+                                    <a href="/dashboard">Dashboard</a>
                                 </li>
                                 <li>
-                                    <a href="">Transactions</a>
+                                    <a href="/transactions">Transactions</a>
                                 </li>
                                 <li>
                                     <a href="">Send/Request</a>
                                 </li>
                                 <li>
-                                    <a href="">Friends</a>
+                                    <a href="/friends">Friends</a>
                                 </li>
                                 <li>
                                     <a href="/deposit">Deposit</a>
