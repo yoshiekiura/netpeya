@@ -24,6 +24,6 @@ class Main extends MY_Controller {
 	{
 		$this->load->model('activity_model');
 		$this->data['activities'] = $this->activity_model->getAll(5);
-		$this->load->view('dashboard', $this->data);
+		$this->renderView('dashboard', $this->data);
 	}
 }

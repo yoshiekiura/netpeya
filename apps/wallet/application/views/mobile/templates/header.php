@@ -11,7 +11,14 @@
         <link rel="stylesheet" type="text/css" href="/assets/vendors/animate/animate.css" />
         <link rel="stylesheet" type="text/css" href="/assets/css/mobile.css" />
     </head>
-    <body class="<?= $pageTitle ?>" ng-app="">
+    <body class="<?= $pageTitle ?> app" ng-app="">
         <header>
-            
+            <div class="container">
+                <div class="left text-left">
+                    <span class="page-title"><?= ucfirst($pageTitle) ?></span>
+                </div>
+                <div class="right text-right">
+                    <p><img class="user-pic" src="/assets/svg/icons/user-green.svg" /><img class="icon" src="/assets/svg/icons/sort.svg" /></p>
+                </div>
+            </div>
         </header>

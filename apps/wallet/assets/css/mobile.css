@@ -16,6 +16,31 @@ body.auth {
 	padding-bottom: 80px;
 }
 
+.container {
+	padding: 0 15px;
+}
+
+.app {
+	background-color: #f0f1f3!important;
+}
+
+.app header {
+	overflow: hidden;
+}
+
+.app header .left,
+.app header .right {
+	line-height: 65px;
+	width: 50%;
+	float: left;
+}
+
+.app header .page-title {
+	line-height: 65px;
+	font-size: 18px;
+	font-weight: 700;
+}
+
 a {
 	color: #4eb929;
 }
@@ -210,4 +235,142 @@ input:focus, select:focus {
     font-weight: 600;
     cursor: pointer;
     text-align: left;
+}
+
+.card {
+	width: 100%;
+    background-color: #fff!important;
+    border: none;
+    border-radius: 5px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.user-profile, .user-balance {
+    display: inline-flex;
+    align-items: center;
+}
+
+.user-profile .user-pic, .user-balance .user-currency {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-weight: 900;
+    border-radius: 50%;
+    background-color: #4eb929;
+    color: rgba(255, 255, 255, .8);
+}
+
+.user-profile .user-details, .user-balance .balance-details {
+    padding-left: 20px;
+}
+
+.user-profile .user-details .user-name, .user-balance .balance-details .balance-amount {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+}
+
+.lazyload {
+    background-image: url(../svg/loaders/loader.svg);
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    background-size: 60px;
+    min-height: 205px;
+}
+
+.lazyload.loaded {
+    background-image: url(../svg/logos/logo-short-grey.svg);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center right;
+}
+
+.dashboard .activity-holder {
+    padding: 0;
+}
+
+.dashboard .activity-holder .title {
+    font-size: 14px;
+    padding-left: 28px;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative;
+}
+
+.dashboard .activity-holder .title:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 100%;
+    background-image: url(../svg/icons/chat.svg);
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
+.dashboard .activity-holder .activity-list {
+    margin-top: 30px;
+    padding-left: 0;
+}
+
+.dashboard .activity-holder .activity-list li.single-activity {
+    padding: 0;
+    list-style: none;
+}
+
+.dashboard .activity-holder .activity-list li .sub-title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 28px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.dashboard .activity-holder .activity-list li .sub-title:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 100%;
+    background-image: url(../svg/icons/time.svg);
+    background-repeat: no-repeat;
+    background-size: 24px;
+}
+
+.dashboard .activity-holder .activity-list ul {
+    position: relative;
+}
+
+.dashboard .activity-holder .activity-list ul:before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background-color: #4eb929;
+}
+
+.dashboard .activity-holder .activity-list ul li {
+	padding: 15px 0;
+    list-style: none;
+    padding-left: 18px;
+    position: relative;
+}
+
+.dashboard .activity-holder .activity-list ul li:before {
+    width: 12px;
+    height: 1px;
+    position: absolute;
+    background-color: #4eb929;
+    content: '';
+    left: 0;
+    top: 50%;
 }
