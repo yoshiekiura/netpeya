@@ -29,7 +29,7 @@
             <a href="/forgot-password">Forgot password?</a>
         </div>
         <div class="form-group ajax-btn-holder">
-            <button class="btn btn-submit btn-green">Log in  <img src="/assets/images/icons/arrow-right-white.png" /></button>
+            <button class="btn btn-submit btn-green">Log in</button>
         </div>
 	</form>
 </div>

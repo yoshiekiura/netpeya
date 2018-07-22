@@ -13,12 +13,33 @@
     </head>
     <body class="<?= $pageTitle ?> app" ng-app="">
         <header>
-            <div class="container">
-                <div class="left text-left">
-                    <span class="page-title"><?= ucfirst($pageTitle) ?></span>
-                </div>
-                <div class="right text-right">
-                    <span><img class="user-pic" src="/assets/svg/icons/user-green.svg" /><img class="icon" src="/assets/svg/icons/sort.svg" /></span>
+            <div class="left text-left">
+                <span class="page-title"><?= ucfirst($pageTitle) ?></span>
+            </div>
+            <div class="right">
+                <span id="sidebar_close" class="pull-left"><img src="/assets/images/icons/arrow-left.png" /></span>
+                <span id="sidebar_opener" class="pull-right"><img class="user-pic" src="/assets/svg/icons/user-green.svg" /><img class="icon" src="/assets/svg/icons/sort.svg" /></span>
+                <div class="sidebar">
+                    <aside class="main-sidebar">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href=""><img src="/assets/svg/icons/home.svg" />Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href=""><img src="/assets/svg/icons/history.svg" /> Transactions</a>
+                                </li>
+                                <li>
+                                    <a href=""><img src="/assets/svg/icons/send.svg" /> Send/Request</a>
+                                </li>
+                                <li>
+                                    <a href=""><img src="/assets/svg/icons/friends.svg" /> Friends</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <a href="/auth/logout" class="logout">Log out  <img class="pl-3" src="/assets/images/icons/arrow-right-white.png" /></a>
+                    </aside>
                 </div>
             </div>
         </header>
+        <main>

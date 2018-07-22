@@ -8,6 +8,7 @@
 		unset($_SESSION['flash_success']);
 	}
 ?>
+</main>
 </body>
 <script type="text/javascript" src="/assets/vendors/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="/assets/vendors/jquery/jquery.cookie.js"></script>
@@ -23,6 +24,16 @@
 		$([document.documentElement, document.body]).animate({
 	        scrollTop: $("header").offset().top
 	    }, 500);
+
+	    $(document).on('click', '#sidebar_opener', function() {
+	    	$('.app header .right').css('background-color', '#fff');
+	    	$('.sidebar, .app header .right #sidebar_close').show();
+	    });
+
+	    $(document).on('click', '#sidebar_close', function() {
+	    	$('.app header .right').css('background-color', 'transparent');
+	    	$('.sidebar, .app header .right #sidebar_close').hide();
+	    });
 	})
 </script>
 </html>

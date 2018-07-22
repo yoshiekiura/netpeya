@@ -27,19 +27,46 @@ body.auth {
 .app header {
 	overflow: hidden;
 	height: 65px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 999;
+	background-color: #f0f1f3!important;
 }
 
 .app header .left,
 .app header .right {
 	line-height: 65px;
-	width: 50%;
 	float: left;
+}
+
+.app header .left {
+	width: 40%;
+	padding-left: 15px;
+}
+
+.app header .right {
+	width: 60%;
+	padding: 0 15px;
+}
+
+.app header .right img {
+	position: relative;
+	top: -2px;
+}
+
+.app header .right #sidebar_close {
+	display: none;
 }
 
 .app header .page-title {
 	line-height: 65px;
 	font-size: 18px;
 	font-weight: 700;
+}
+
+main {
+	margin-top: 70px;
 }
 
 a {
@@ -387,4 +414,65 @@ input:focus, select:focus {
 
 .box-shadow {
 	box-shadow: 0 0.285rem 1.1428rem rgba(33, 102, 212, 0.15);
+}
+
+.sidebar {
+	display: none;
+	background-color: rgba(240, 242, 245, 0.6);
+	z-index: 999;
+	position: fixed;
+	width: 100%;
+	top: 65px;
+	left: 0;
+	height: 100vh;
+}
+
+.main-sidebar {
+	position: fixed;
+	right: 0;
+	width: 60%;
+	height: calc(100vh - 65px);
+	background-color: #fff;
+	padding: 15px;
+}
+
+.main-sidebar nav ul {
+	list-style: none;
+	padding-left: 15px;
+}
+
+.main-sidebar nav ul li {
+	line-height: 30px;
+	list-style: none;
+}
+
+.main-sidebar nav ul li a {
+	color: #394047;
+	font-weight: 700;
+	width: 100%;
+	line-height: 55px;
+}
+
+.main-sidebar nav ul li a img {
+	margin-right: 10px;
+}
+
+.main-sidebar .logout {
+	position: absolute;
+    bottom: 0; 
+    text-align: center;
+    width: 100%;
+    background-color: #394047;
+    color: #fff;
+    z-index: 1000;
+    left: 0;
+    line-height: 55px;
+}
+
+.pull-right {
+	float: right;
+}
+
+.pull-left {
+	float: left;
 }
