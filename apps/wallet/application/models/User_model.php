@@ -132,6 +132,8 @@ class User_model extends MY_Model {
 
 		if($user_id) {
 
+			$user = $this->getUserFullInfo($user_id);
+
 			$np_id = 'NP' . str_pad($user_id, 8, '0', STR_PAD_LEFT);
 
 			$sql = "UPDATE user SET np_id = ? WHERE id = ?";
@@ -140,13 +142,12 @@ class User_model extends MY_Model {
 	        $user['np_id'] = $np_id;
 
 	        if ($query > 0) {
-	        	$data = $user;
-                $this->postmark->from('no-reply@netpeya.com', 'NetPeya');
-                $this->postmark->to($data['email'], $data['first_name'] . ' ' . $data['last_name']);
-                $this->postmark->subject('Account activation');
-                $this->postmark->message_html($this->load->view('templates/email/registration', $data, true));
-                $this->postmark->send();
-                
+	            $this->postmark->from('no-reply@netpeya.com', 'NetPeya');
+	            $this->postmark->to($user->email, $user->first_name . ' ' . $user->last_name);
+	            $this->postmark->subject('Account activation');
+	            $this->postmark->message_html($this->load->view('templates/email/registration', array('user' => $user), true));
+	            $this->postmark->send();
+	            
 	            return $user;
 	        }
 		}
@@ -162,6 +163,27 @@ class User_model extends MY_Model {
 
         if ($query > 0) {
         	return true;
+        }
+
+        return false;
+	}
+
+	public function resendActivationCode($np_id) {
+		$code = mt_rand(100000, 999999);
+		$user = $this->getUserFullInfoByNPNumber($np_id);
+
+		$sql = "UPDATE user SET activation_code = ? WHERE id = ?";
+        $query = $this->db->query($sql, array($code, $user->id));
+
+        if ($query > 0) {
+        	$user->activation_code = $code;
+            $this->postmark->from('no-reply@netpeya.com', 'NetPeya');
+            $this->postmark->to($user->email, $user->first_name . ' ' . $user->last_name);
+            $this->postmark->subject('Account activation');
+            $this->postmark->message_html($this->load->view('templates/email/registration', array('user' => $user), true));
+            $this->postmark->send();
+            
+            return $user;
         }
 
         return false;
@@ -237,6 +259,12 @@ class User_model extends MY_Model {
 				if ($user->is_active == 0)
 				{
 					$this->set_error('<p>Account is not active</p>');
+					return FALSE;
+				}
+
+				if ($user->activation_code != '' || $user->activation_code)
+				{
+					$this->set_error('<p>Account is not active, please use the code sent to your email.</p><p><a class="green-text" href="/activation/' . $user->np_id . '"><strong>Activate here</strong></a></p>');
 					return FALSE;
 				}
 

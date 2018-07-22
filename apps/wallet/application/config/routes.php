@@ -58,6 +58,7 @@ $route['logout'] = 'auth/logout';
 $route['register'] = 'auth/register';
 $route['activation'] = 'auth/activation';
 $route['activation/(:any)'] = 'auth/activation/$1';
+$route['resend-activation/(:any)'] = 'auth/resend_activation/$1';
 
 // ****** AJAX **************
 

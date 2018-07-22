@@ -54,6 +54,13 @@
                 </select>
             </div>
         </div>
+        <div class="form-group">
+            <div class="checkbox-holder">
+                <input type="hidden" class="validate" name="terms" />
+                <p class="checkbox"></p>
+                <label class="checkbox-label">I accept and agree to the<br/> <a href="">term &amp; conditions </a></label>
+            </div>
+        </div>
         <div class="form-group ajax-btn-holder">
             <button class="btn btn-submit btn-green">Register  <img src="/assets/images/icons/arrow-right-white.png" /></button>
         </div>

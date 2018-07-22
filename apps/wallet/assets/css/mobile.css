@@ -66,13 +66,13 @@ a:hover, a:focus {
 }
 
 .auth form {
-	width: 60%;
+	width: 70%;
 	margin: 0 auto;
 	text-align: center;
 }
 
 .auth .register form {
-	width: 75%;
+	width: 80%;
 }
 
 .auth .login, .auth .register {
@@ -104,9 +104,13 @@ input:focus, select:focus {
 .btn {
 	box-shadow: none;
 	padding: 8px 15px;
+	margin-top: 20px;
+	border: 1px solid transparent!important;
+	font-weight: 600;	
 }
 
 .btn:focus, .btn:hover {
+	color: initial;
 	outline: none;
 	box-shadow: none;
 }
@@ -119,6 +123,11 @@ input:focus, select:focus {
 .btn-green {
 	background-color: #4eb929!important;
 	color: #fff;
+}
+.btn-green-trans {
+	background-color: transparent!important;
+	color: #4eb929;
+	border: 1px solid #4eb929!important;
 }
 
 .flash-errors, .flash-success {
@@ -158,4 +167,37 @@ input:focus, select:focus {
 
 .flash-errors p:last-child, .flash-success p:last-child {
   padding-bottom: 10px;
+}
+
+.checkbox-holder {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.checkbox-holder .checkbox {
+  margin: 0;
+  height: 30px;
+  width: 30px;
+  border: 1px solid #eee;
+  background-color: #fff;
+  border-radius: 3px;
+  background-image: url('../images/icons/dot.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.checkbox-holder .checkbox.checked {
+  background-image: url('../images/icons/dot-white.png');
+  border: 1px solid #4eb929;
+  background-color: #4eb929;
+}
+
+.checkbox-holder .checkbox-label {
+    margin: 0;
+    padding: 0 6px 0 21px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
 }

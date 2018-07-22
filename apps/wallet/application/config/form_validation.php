@@ -13,10 +13,9 @@ $config = array(
             array(
                     'field' => 'password',
                     'label' => 'lang:password',
-                    'rules' => 'required|regex_match[/^.*(?=.{6,})(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$/]',
+                    'rules' => 'required',
                     'errors' => array(
-		                'required' => 'The <strong>%s</strong> field is required.',
-		                'regex_match' => 'The <strong>%s</strong> must be strong: <ul style="margin-left:10px"><li>At least 6 characters long</li><li>Include at least 1 uppercase letter</li><li>Include at least 1 lowercase letter</li><li>At least 1 digit</li></ul>'
+		                'required' => 'The <strong>%s</strong> field is required.'
 			        )
             )
         ),
@@ -62,6 +61,24 @@ $config = array(
                     'errors' => array(
 		                'required' => 'You need to <strong>agree to terms &amp; conditions</strong>'
 			        )
+            ),
+            array(
+                    'field' => 'country_id',
+                    'label' => 'lang:country',
+                    'rules' => 'required|integer',
+                    'errors' => array(
+                        'required' => 'The <strong>%s</strong> field is required.',
+                        'integer' => 'Please select your country.'
+                    )
+            ),
+            array(
+                    'field' => 'currency_id',
+                    'label' => 'lang:currency',
+                    'rules' => 'required|integer',
+                    'errors' => array(
+                        'required' => 'The <strong>%s</strong> field is required.',
+                        'integer' => 'Please select your default currency.'
+                    )
             )
     ),
         'forgot_password' => array(
@@ -74,5 +91,34 @@ $config = array(
 		            'valid_email' => 'Please enter a valid email'
 		        )
         )
+    ),
+        'reset_password' => array(
+            array(
+                'field' => 'code',
+                'label' => 'lang:Code',
+                'rules' => 'required|integer',
+                'errors' => array(
+                    'required' => 'The <strong>%s</strong> field is required.',
+                    'integer' => 'Please enter a valid %s'
+                )
+            ),
+            array(
+                'field' => 'password',
+                'label' => 'lang:password',
+                'rules' => 'required|regex_match[/^.*(?=.{6,})(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$/]',
+                'errors' => array(
+                    'required' => 'The <strong>%s</strong> field is required.',
+                    'regex_match' => 'The <strong>%s</strong> must be strong: <ul style="margin-left:10px"><li>At least 6 characters long</li><li>Include at least 1 uppercase letter</li><li>Include at least 1 lowercase letter</li><li>At least 1 digit</li></ul>'
+                )
+            ),
+            array(
+                'field' => 'repeat_password',
+                'label' => 'lang:Repeat Password',
+                'rules' => 'required|matches[password]',
+                'errors' => array(
+                    'required' => 'The <strong>%s</strong> field is required.',
+                    'matches' => 'Passwords do not match.'
+                )
+            )
     )
 );

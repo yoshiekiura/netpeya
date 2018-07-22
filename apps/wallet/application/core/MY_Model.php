@@ -8,6 +8,7 @@ class MY_Model extends CI_Model {
 
 		$this->load->database();
 		$this->load->library('session');
+		$this->load->helper(array('form', 'url', 'language'));
 	}
 
 	protected function _filter_data($table, $data)

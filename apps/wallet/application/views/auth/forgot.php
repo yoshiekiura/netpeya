@@ -22,18 +22,12 @@
                     <p><?= $this->session->flashdata('flash_success') ? $this->session->flashdata('flash_success') : '' ?></p>
                 </div>
                 <div class="webkit-box">
-                <div class="flash-errors <?= $this->session->flashdata('flash_erros') ? 'shown' : '' ?>">
-                    <p><?= $this->session->flashdata('flash_erros') ? $this->session->flashdata('flash_erros') : '' ?></p>
-                </div>
-                <div class="flash-success <?= $this->session->flashdata('flash_success') ? 'shown' : '' ?>">
-                    <p><?= $this->session->flashdata('flash_success') ? $this->session->flashdata('flash_success') : '' ?></p>
-                </div>
                     <div class="form-group">
                         <div class="input-group">
                             <div class="label-holder"><span>E-mail address</span></div>
                             <input type="text" name="email" class="form-control validate input-translate" />
                             <span class="validate-message">Enter valid email</span>
-                            <button class="btn submit ajax-btn mt-3">Send code  <img src="/assets/images/icons/arrow-right-white.png" /></button>
+                            <button class="btn submit ajax-btn mt-3">Next step  <img src="/assets/images/icons/arrow-right-white.png" /></button>
                         </div>
                     </div>
                 </div>

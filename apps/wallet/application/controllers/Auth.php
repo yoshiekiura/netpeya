@@ -34,10 +34,7 @@ class Auth extends MY_Controller {
 	                redirect('dashboard');
 	            } else {
 	            	$this->session->set_flashdata('flash_erros', implode('', $this->user_model->get_errors()));
-		    		$this->renderView('auth/login', $this->data);
 	            }
-	        } else {
-	        	$this->renderView('auth/login', $this->data);
 	        }
 	    }
 
@@ -111,10 +108,10 @@ class Auth extends MY_Controller {
 
 	           		if($res) {
 	           			$this->data['email'] = $user->email;
-	           			$this->load->view('auth/reset_password', $this->data);
+	           			$this->renderView('auth/reset_password', $this->data);
 	           		} else {
 		           		$this->session->set_flashdata('flash_erros', '<p>An error occured, please try again.</p>');
-		           		$this->load->view('auth/forgot', $this->data);
+		           		$this->renderView('auth/forgot', $this->data);
 	           		}
 
 	           	} else {
@@ -122,28 +119,23 @@ class Auth extends MY_Controller {
 		           	redirect('register');
 	           	}
 			} else {
-				$this->load->view('auth/forgot', $this->data);
+				$this->renderView('auth/forgot', $this->data);
 			}
 		} else {
-			$this->load->view('auth/forgot', $this->data);
+			$this->renderView('auth/forgot', $this->data);
 		}
 	}
 
 	public function reset_password() {
 		$this->data['pageTitle'] = 'reset';
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {
-			$this->form_validation->set_rules("email", "Email", "required");
-			$this->form_validation->set_rules("code", "Code", "required");
-			$this->form_validation->set_rules("password", "Password", "required");
-			$this->form_validation->set_rules("repeat_password", "Repeat Password", "required");
+			
 			$email = $this->input->post("email");
-			$code = $this->input->post("code");
-			$password = $this->input->post("password");
-			$repeat_password = $this->input->post("repeat_password");
-
 			$this->data['email'] = $email;
-
-			if($this->form_validation->run()) {
+			if($this->form_validation->run('reset_password')) {
+				$code = $this->input->post("code");
+				$password = $this->input->post("password");
+				$repeat_password = $this->input->post("repeat_password");
 				$user = $this->user_model->getUserFullInfoByEmail($email);
 				if($user && $user->forgot_password_code) {
 
@@ -155,31 +147,38 @@ class Auth extends MY_Controller {
 				                    'type' => 'Authentication',
 				                    'description' => 'Password reset'
 				                ), $user->id);
-								$this->session->set_flashdata('flash_success', 'You password was reset, please use it to login.');
-			           			$this->load->view('auth/login', $this->data);
+								$this->session->set_flashdata('flash_success', '<p>You password was reset, please use it to login.</p>');
+			           			$this->renderView('auth/login', $this->data);
 							} else {
-								$this->session->set_flashdata('flash_erros', 'An error occured, please try again.');
+								$this->session->set_flashdata('flash_erros', '<p>An error occured, please try again.</p>');
+	        					$this->renderView('auth/reset_password', $this->data);
 							}
 						} else {
-							$this->session->set_flashdata('flash_erros', 'Passwords do not match, please try again.');
+							$this->session->set_flashdata('flash_erros', '<p>Passwords do not match, please try again.</p>');
+	        				$this->renderView('auth/reset_password', $this->data);
 						}
 					} else {
-		           		$this->session->set_flashdata('flash_erros', 'Wrong pass code, please refer to your email.');
+		           		$this->session->set_flashdata('flash_erros', '<p>Wrong pass code, please refer to your email.</p>');
+	        			$this->renderView('auth/reset_password', $this->data);
 	           		}
 
 	           	} else {
-	           		$this->session->set_flashdata('flash_erros', 'You do not have an account, please create one.');
+	           		$this->session->set_flashdata('flash_erros', '<p>You do not have an account, please create one.</p>');
 		           	redirect('register');
 	           	}
-			} else {
-	        	$this->session->set_flashdata('flash_erros', 'Please fill all fields correctly.');
 			}
-
-	        $this->load->view('auth/reset_password', $this->data);
 		} else {
-	        $this->session->set_flashdata('flash_erros', 'You do not have an account, please create one.');
-			$this->load->view('auth/reset_password', $this->data);
+	        $this->renderView('auth/reset_password', $this->data);
 		}
+	}
+
+	public function resend_activation($np_id) {
+		if($this->user_model->resendActivationCode($np_id)) {
+	        $this->session->set_flashdata('flash_success', 'We have sent you a new activation code.');
+		} else {
+	    	$this->session->set_flashdata('flash_erros', 'Failed to send activation code, please try again.');
+		}
+		redirect('activation/' . $np_id);
 	}
 
 	public function activation($np_id = '') {
@@ -209,13 +208,10 @@ class Auth extends MY_Controller {
 	           		}
 	           	} else {
  					$this->data['np_id'] = '';
-	           		$this->load->view('auth/activation', $this->data);
 	           	}
 			}
-		} else {
-			if($this->data['np_id'] == '') redirect('login');
-
-			$this->load->view('auth/activation', $this->data);
 		}
+
+		$this->renderView('auth/activation', $this->data);
 	}
 }
