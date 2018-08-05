@@ -38,10 +38,8 @@
                     <input type="text" tabindex="4" autocomplete="false" value="<?= $friend->phone ?>" name="phone" class="form-control input-translate" />
                 </div>
             </div>
-        </div>
-        <div class="col-md-12">
             <div class="form-group text-center">
-                <button id="do_add_friend" style="" class="submit btn-green">Save</button>
+                <button id="do_add_friend" style="" class="submit btn-green full-width">Save friend</button>
             </div>
         </div>
     </div>

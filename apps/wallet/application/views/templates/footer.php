@@ -18,36 +18,6 @@
 </div>
         </main>
         <footer>
-        	<!-- <div class="mobile mobile-footer">
-        		<nav class="mobile-footer-nav">
-        			<ul>
-        				<li class="deposit">
-                        	<a href="/deposit">
-                        		<img class="icon" src="/assets/svg/icons/deposit-mobile.svg" />
-                        		<span>deposit</span>
-                        	</a>
-	                    </li>
-        				<li class="send">
-                        	<a href="/send">
-                        		<img class="icon" src="/assets/svg/icons/send-mobile.svg" />
-                        		<span>send</span>
-                        	</a>
-	                    </li>
-	                    <li class="request">
-	                        <a href="">
-	                        	<img class="icon" src="/assets/svg/icons/request-mobile.svg" />
-                        		<span>request</span>
-	                        </a>
-	                    </li>
-	                    <li class="withdraw">
-	                        <a href="">
-	                        	<img class="icon" src="/assets/svg/icons/withdraw-mobile.svg" />
-                        		<span>withdraw</span>
-	                        </a>
-	                    </li>
-        			</ul>
-        		</nav>
-        	</div> -->
         	<div class="container hidden-mobile">
         		<div class="webkit-box">
         			<div class="col-md-1 no-left">
@@ -55,7 +25,7 @@
         			</div>
         			<div class="col-md-11 no-right">
 		        		<div class="footer-top">
-		        			<span class="updated">Last updated: Mar 19, 2018 4:02 PM UTC</span>
+		        			<span class="updated"><strong>System Time:</strong> <?= date('M d, Y H:i T') ?></span>
 		        			<p class="pull-right">
 			        			<a class="nav-link lang dropdown-btn">English</a>
 			        			<ul class="dropdown-content language-switch">

@@ -24,6 +24,12 @@
                         <nav>
                             <ul>
                                 <li>
+                                    <a class="btn btn-green" href="/deposit">Deposit</a>
+                                </li>
+                                <li>
+                                    <a class="btn btn-green withdraw" href="">Withdraw</a>
+                                </li>
+                                <li>
                                     <a href="/dashboard">Dashboard</a>
                                 </li>
                                 <li>
@@ -34,12 +40,6 @@
                                 </li>
                                 <li>
                                     <a href="/friends">Friends</a>
-                                </li>
-                                <li>
-                                    <a href="/deposit">Deposit</a>
-                                </li>
-                                <li>
-                                    <a href="">Withdraw</a>
                                 </li>
                             </ul>
                         </nav>

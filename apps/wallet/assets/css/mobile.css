@@ -50,7 +50,7 @@ body.auth {
 }
 
 .app header .right img {
-	height: 30px;
+	height: 22px;
 	position: relative;
 	top: -2px;
 }
@@ -64,7 +64,7 @@ body.auth {
 
 .app header .right #sidebar_close img {
 	margin-right: 10px;
-	height: 22px;
+	height: 15px;
 }
 
 .app header .page-title {
@@ -442,7 +442,7 @@ input:focus, select:focus {
 	width: 100%;
 	height: calc(100vh - 65px);
 	background-color: rgba(255, 255, 255, .9);
-	padding: 15px;
+	padding: 0 15px;
 }
 
 .main-sidebar nav ul {
@@ -460,12 +460,26 @@ input:focus, select:focus {
 	color: rgb(20, 38, 73);
     font-weight: 700;
     width: 100%;
-    line-height: 65px;
+    line-height: 60px;
     font-size: 22px;
 }
 
 .main-sidebar nav ul li a img {
 	margin-right: 10px;
+}
+
+.main-sidebar nav ul li a.btn {
+    max-width: 230px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .9);
+}
+
+.main-sidebar nav ul li a.btn.withdraw {
+    background-color: #377dff!important;
 }
 
 .main-sidebar .logout {

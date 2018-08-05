@@ -4,6 +4,7 @@ class MY_Controller extends CI_Controller
 {
 	public function __construct() {
 		parent::__construct();
+		date_default_timezone_set('Africa/Johannesburg');
 		
 		$this->load->helper(array('form', 'url', 'language'));
 		$this->load->library('form_validation');
@@ -16,7 +17,7 @@ class MY_Controller extends CI_Controller
 			$this->data['user'] = $this->user_model->getUserFullInfo();
 		}
 
-		if ($this->input->server('REQUEST_METHOD') == 'POST' && !isset($_POST['payment_data'])) {
+		if ($this->input->server('REQUEST_METHOD') == 'POST' && !isset($_POST['payment_data']) && !isset($_POST['friend'])) {
 			foreach ($_POST as $key => $value) {
 				$_POST[$key] = trim(htmlspecialchars($value));
 			}

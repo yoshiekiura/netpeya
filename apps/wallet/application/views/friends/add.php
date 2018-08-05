@@ -9,7 +9,8 @@
     <span class="text-center title">Add a friend<span>
 </div>
 <form id="friend_form" class="friend-form">
-    <div class="">
+    <div class="webkit-box">
+        <div class="col-md-6">
             <div class="form-group">
                 <div class="input-group">
                     <div class="label-holder"><span>First name</span></div>
@@ -22,6 +23,8 @@
                     <input type="email" tabindex="3" autocomplete="false" name="email" class="form-control input-translate" />
                 </div>
             </div>
+        </div>
+        <div class="col-md-6">
             <div class="form-group">
                 <div class="input-group">
                     <div class="label-holder"><span>Last name</span></div>
@@ -35,8 +38,9 @@
                 </div>
             </div>
             <div class="form-group text-center">
-                <button id="do_add_friend" class="submit btn-green">Save</button>
+                <button id="do_add_friend" class="submit btn-green full-width">Add friend</button>
             </div>
+        </div>
     </div>
 </form>
 <?php $CI->load->view('templates/footer'); ?>
