@@ -8,7 +8,7 @@
     <div class="card webkit-box">
         <div class="col-md-4 blue-bg left">
             <a href="" class="active">Log into my<br/> wallet</a>
-            <a href="/forgot-password">Forgot your<br/> password</a>
+            <a href="/forgot-password">Forgot your<br/> password?</a>
             <a href="/register">Create new<br/> wallet</a>
         </div>
         <div class="col-md-8 right app_content lazyload">

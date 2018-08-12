@@ -86,7 +86,7 @@
                         <a href="/friends" class="<?= ($pageTitle == 'friends' || $pageTitle == 'friends add' || $pageTitle == 'friends edit') ? 'active' : '' ?> nav-friends">Friends</a>
                     </li>
                     <li>
-                        <a href="" class="nav-send-receive">Send/Request</a>
+                        <a href="/send" class="<?= ($pageTitle == 'send' || $pageTitle == 'send to email' || $pageTitle == 'send to cell') ? 'active' : '' ?> nav-send-receive">Send funds</a>
                     </li>
                     <!-- <li>
                         <a href="" class="nav-exchange">Exchange</a>
@@ -97,10 +97,10 @@
                 </ul>
                 <ul class="pull-right right">
                     <li>
-                        <a href="/deposit" class="deposit"><img class="icon" src="/assets/images/icons/deposit-white.png" /> Deposit</a>
+                        <a href="/deposit" class="deposit"><img class="icon" src="/assets/svg/icons/deposit_white.svg" /> Deposit</a>
                     </li>
                     <li>
-                        <a href="" class="withdraw"><img class="icon" src="/assets/images/icons/withdraw-white.png" /> Withdraw</a>
+                        <a href="" class="withdraw"><img class="icon" src="/assets/svg/icons/withdraw_white.svg" /> Withdraw</a>
                     </li>
                 </ul>
             </div>
@@ -114,6 +114,20 @@
                         </li>
                         <li>
                             <a href="/friends/add" class="<?= $pageTitle == 'friends add' ? 'active' : '' ?> nav-add">Add a friend</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        <?php endif;?>
+        <?php if($pageTitle == 'send' || $pageTitle == 'send to email' || $pageTitle == 'send to cell'): ?>
+            <nav class="third-nav">
+                <div class="container">
+                    <ul class="pull-left left">
+                        <li>
+                            <a href="/send-to-email" class="<?= ($pageTitle == 'send' || $pageTitle == 'send to email') ? 'active' : '' ?> nav-list">Send to email</a>
+                        </li>
+                        <li>
+                            <a href="/send-to-cell" class="<?= $pageTitle == 'send to cell' ? 'active' : '' ?> nav-add">Send to cell</a>
                         </li>
                     </ul>
                 </div>

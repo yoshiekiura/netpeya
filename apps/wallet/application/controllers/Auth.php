@@ -69,7 +69,7 @@ class Auth extends MY_Controller {
 		        $this->load->model('user_model');
 	            $reg_user = $this->user_model->add($user);
 	            if($reg_user) {
-	                redirect('activation/' . $reg_user['np_id']);
+	                redirect('activation/' . $reg_user->np_id);
 	            } else {
 		            $this->session->set_flashdata('flash_erros', implode('', $this->user_model->get_errors()));
 		    		$this->renderView('auth/register', $this->data);

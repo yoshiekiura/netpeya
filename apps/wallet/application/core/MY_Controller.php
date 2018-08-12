@@ -9,6 +9,7 @@ class MY_Controller extends CI_Controller
 		$this->load->helper(array('form', 'url', 'language'));
 		$this->load->library('form_validation');
 		$this->load->model('depositmethod_model');
+		$this->load->model('currency_model');
 		$this->load->model('user_model');
 		$this->load->library('session');
 

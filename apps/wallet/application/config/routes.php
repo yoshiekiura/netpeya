@@ -82,6 +82,10 @@ $route['friends/add'] = 'friends/add';
 $route['friends/edit/(:any)'] = 'friends/edit/$1';
 $route['settings'] = 'settings';
 
+$route['send'] = 'send/index';
+$route['send-to-email'] = 'send/send_to_email';
+$route['send-to-cell'] = 'send/send_to_cell';
+
 
 $route['default_controller'] = 'main';
 $route['404_override'] = '';

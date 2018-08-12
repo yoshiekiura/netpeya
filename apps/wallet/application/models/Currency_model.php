@@ -24,4 +24,9 @@ class Currency_model extends MY_Model {
 		$query = $this->db->get_where($this->table, array('is_active' => 1, 'code' => $code));
 		return $query->row();
 	}
+
+	public function getAllInitial() {
+		$query = $this->db->get_where($this->table, array('is_active' => 1, 'is_initial' => 1));
+		return $query->result();
+	}
 }

@@ -7,7 +7,7 @@
 <div class="deposit-form p-3">
     <form class="form" method="post" action="/deposit/pay">
         <div class="form-group">
-            <input type="number" id="deposit_amount" value="<?= (double)$default_amount ?>" name="deposit_amount" class="form-control">
+            <input type="number" id="deposit_amount" value="<?= (double)$default_amount ?>" name="deposit_amount" class="form-control amount">
             <input type="hidden" id="method" name="method" value="creditcard">
             <span class="amount-label">Amount</span>
         </div>

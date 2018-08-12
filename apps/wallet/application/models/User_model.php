@@ -21,6 +21,7 @@ class User_model extends MY_Model {
 		if($user_id == '') $user_id = $this->user_id;
 
 		$this->db->select('user.*,
+				currency.id as currency_id,
 				currency.name as currency,
 				currency.code as currency_code,
 				currency.simbol as currency_simbol,
@@ -139,9 +140,13 @@ class User_model extends MY_Model {
 			$sql = "UPDATE user SET np_id = ? WHERE id = ?";
 	        $query = $this->db->query($sql, array($np_id, (int)$user_id));
 
-	        $user['np_id'] = $np_id;
+	        $user->np_id = $np_id;
 
 	        if ($query > 0) {
+	        	$this->load->model('usercurrencyaccount_model');
+	        	$this->usercurrencyaccount_model->createUserDefaultAccounts($user_id);
+
+	        	//Send activation enail
 	            $this->postmark->from('no-reply@netpeya.com', 'NetPeya');
 	            $this->postmark->to($user->email, $user->first_name . ' ' . $user->last_name);
 	            $this->postmark->subject('Account activation');
@@ -154,6 +159,8 @@ class User_model extends MY_Model {
 
 		return FALSE;
 	}
+
+	
 
 	public function reset_password($email, $password) {
 		$new_password = $this->create_password($password);

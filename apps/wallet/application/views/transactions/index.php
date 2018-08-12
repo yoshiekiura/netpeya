@@ -45,7 +45,7 @@
                 <tbody>
                     <?php foreach($transactions as $trans): ?>
                         <tr>
-                            <td><img class="icon" src="/assets/images/icons/<?= strtolower($trans->transaction_type) ?>.png" /><?= $trans->transaction_type ?></td>
+                            <td><img class="icon" src="/assets/svg/icons/<?= strtolower($trans->transaction_type) ?>.svg" /><?= $trans->transaction_type ?></td>
                             <td class="fade-text"><?= $trans->date ?></td>
                             <td class="amount"><?= $user->currency_simbol . number_format($trans->amount, 2, '.', ',') ?></td>
                             <td class="fade-text"><?= $trans->status ?></td>

@@ -9,7 +9,7 @@
         <script type="text/javascript" src="/assets/vendors/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
     </head>
-    <body style="display: grid" class="auth <?= $pageTitle ?>" ng-app="">
+    <body class="auth <?= $pageTitle ?>" ng-app="">
         <header>
             <div class="container">
                 <div class="webkit-box">

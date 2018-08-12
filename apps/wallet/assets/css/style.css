@@ -14,7 +14,6 @@ body {
 
 body.auth {
   height: 100vh;
-  display: grid;
 }
 
 .auth a {
@@ -305,15 +304,23 @@ header nav ul li {
 .third-nav ul {
   width: 100%;
   border-top: 1px solid #dee2e6;
+  padding-top: 10px;
 }
 
 .third-nav ul li a {
-  color: #8e9091;
+  padding: 5px 12px;
+  vertical-align: middle;
+  background-color: #ffffff;
   margin-right: 10px;
-  padding: 15px 10px 15px 0;
+  color: #888888;
+  border-radius: 3px;
   position: relative;
-  top: 2px;
-  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 11px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
 }
 
 .third-nav ul li input {
@@ -325,8 +332,12 @@ header nav ul li {
 }
 
 .third-nav ul li a.active, .third-nav ul li a:hover, .third-nav ul li a:focus {
-  color: #4eb929;
+  background-color: #377dff;
+  margin-right: 10px;
+  color: #fff;
+  outline: none;
   text-decoration: none;
+  box-shadow: 0 4px 17px rgba(142, 144, 145, 0.35)!important;
 }
 
 .secondary-nav ul, .third-nav ul {
@@ -412,7 +423,7 @@ header nav ul li {
 .secondary-nav ul li a.nav-send-receive.active:before,
 .secondary-nav ul li a.nav-send-receive:hover:before,
 .secondary-nav ul li a.nav-send-receive:focus:before {
-  background-image: url('../svg/icons/send-white.svg');
+  background-image: url('../svg/icons/send_white.svg');
 }
 
 .secondary-nav ul li a.nav-exchange:before {
@@ -835,6 +846,7 @@ main .app_content {
 .transactions table tbody tr td .icon {
   position: relative;
   margin-right: 30px;
+  height: 20px;
 }
 
 .pagination {
@@ -920,17 +932,20 @@ main .app_content {
   text-align: center;
 }
 
-.deposit-form .form #deposit_amount {
+.deposit-form .form input {
   border: none;
   background-color: transparent;
   border-bottom: 1px solid #F0F2F5;
   border-radius: 0;
   text-align: center;
-  font-size: 26px;
-  font-weight: 600;
   padding-bottom: 0;
   width: 250px;
   margin: 0 auto;
+}
+
+.deposit-form .form input.amount {
+  font-size: 26px;
+  font-weight: 600;
 }
 
 .deposit-form .form .form-group {
@@ -1042,7 +1057,7 @@ main .app_content {
 .btn-green {
   background-color: #4eb929;
   border: 1px solid #4eb929;
-  height: 50px;
+  height: 60px;
   position: relative;
   text-align: center;
   color: #fff;
@@ -1061,7 +1076,6 @@ main .app_content {
 
 .deposit-form button.submit {
   min-width: 350px;
-  height: 60px;
 }
 
 .deposit-form .dropdown-btn p {

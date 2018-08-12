@@ -49,7 +49,7 @@ class Activity_model extends MY_Model {
 				$date = $datediff < 2 ? 'Yesterday' : intval($datediff) . ' days ago';
 			}
 
-			$r->time = date("H:i:s", strtotime($r->ts_created));
+			$r->time = date("H:i", strtotime($r->ts_created));
 
 			$result[$date][] = $r;
 		}
